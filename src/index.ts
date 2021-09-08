@@ -8,26 +8,28 @@ const defaults: Options = {
   replace: () => true,
 }
 
-export default createUnplugin<Options>(options => ({
-  name: 'unplugin-skypin',
-  enforce: 'post',
-  async resolveId(source: string) {
-    options = { ...defaults, ...options }
+export default createUnplugin<Options>((options) => {
+  options = { ...defaults, ...options }
+  const skypinOptions = {
+    min: options.minified,
+    pin: options.pinned,
+  }
 
-    if (source) {
-      const replace = options.replace(source)
+  return {
+    name: 'unplugin-skypin',
+    enforce: 'post',
+    async resolveId(source: string) {
+      if (!source || source.match(/^\.|^src|^https?:\/\//))
+        return source
 
-      if (replace && !(source.match(/^\.|^src|^https?:\/\//))) {
-        const url = await skypin(typeof replace === 'string' ? replace : source, {
-          min: options.minified,
-          pin: options.pinned,
-        })
+      const replace = options?.replace(source)
+
+      if (replace) {
+        const url = await skypin(typeof replace === 'string' ? replace : source, skypinOptions)
 
         if (url)
           return url
       }
-    }
-
-    return source
-  },
-}))
+    },
+  }
+})
