@@ -1,23 +1,29 @@
 # unplugin-skypin
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-skypin?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-skypin)
+<!-- [![NPM version](https://img.shields.io/npm/v/unplugin-skypin?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-skypin) -->
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
+Inspired by [rollup-plugin-skypin](https://github.com/MarshallCB/rollup-plugin-skypin#usage),
+this plugin provides the same functionality across all the platforms supported by Unplugin!
 
-## Template Usage
+## Options
 
-To use this template, clone it down using:
+Uses parameters similar to RPS:
+
+- `minified` *(Type: Boolean, Default: `true`)*: Whether to use minified assets.
+- `pinned` *(Type: Boolean, Default: `true`)*: Whether to use Skypack's [pinned](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized#generate-a-pinned-url) assets (recommended, even in development).
+- `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
+
+The other options are not included because realistically the only package imports that should be changed are regular imports, i.e. "hueman."
+Imports in other formats should not be changed.
+External imports should be properly configured based on the framework used.
+
+## Usage
 
 ```bash
-npx degit antfu/unplugin-skypin my-unplugin
+pnpm i
 ```
 
-And do a global replace of `unplugin-skypin` with your plugin name.
-
-Then you can start developing your unplugin 🔥
-
-To test your plugin, run: `pnpm run dev`
-To release a new version, run: `pnpm run release`
+Check the `package.json` for the available scripts.
 
 ## Install
 
@@ -30,11 +36,11 @@ npm i unplugin-skypin
 
 ```ts
 // vite.config.ts
-import Starter from 'unplugin-skypin/vite'
+import Skypin from 'unplugin-skypin/vite'
 
 export default defineConfig({
   plugins: [
-    Starter({ /* options */ }),
+    Skypin({ /* options */ }),
   ],
 })
 ```
@@ -48,11 +54,11 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import Starter from 'unplugin-skypin/rollup'
+import Skypin from 'unplugin-skypin/rollup'
 
 export default {
   plugins: [
-    Starter({ /* options */ }),
+    Skypin({ /* options */ }),
   ],
 }
 ```

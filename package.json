@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Skypin plugin support across all Unplugin platforms.",
   "keywords": [
-    "skypin",
     "skypack",
+    "skypin",
     "unplugin",
     "vite",
     "webpack",
@@ -58,9 +58,9 @@
     "build": "rimraf dist && tsup ./src/*.ts --format cjs,esm --dts && esno scripts/postbuild.ts",
     "dev": "tsup ./src/*.ts --watch src",
     "lint": "eslint \"{src,test}/**/*.ts\"",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "pnpm lint -- --fix",
     "play": "npm -C playground run dev",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "esno src/index.ts",
     "test": "jest",
@@ -71,6 +71,7 @@
     "unplugin": "^0.2.7"
   },
   "peerDependencies": {
+    "skypin": "^2.0.10",
     "unplugin": "^0.2.7"
   },
   "devDependencies": {
