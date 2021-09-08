@@ -13,7 +13,7 @@ Uses parameters similar to RPS:
 - `pinned` *(Type: Boolean, Default: `true`)*: Whether to use Skypack's [pinned](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized#generate-a-pinned-url) assets (recommended, even in development).
 - `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
 
-The other options are not included because realistically the only package imports that should be changed are regular imports, i.e. "hueman."
+The other options are not included because only [package imports supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used.
 Imports in other formats should not be changed.
 External imports should be properly configured based on the framework used.
 
