@@ -1,3 +1,7 @@
 export interface Options {
-  // define your plugin options here
+  minified: boolean
+  pinned: boolean
+  allowRelative: boolean
+  allowWeb: boolean
+  shouldReplace: (module_id: string) => (boolean | string)
 }

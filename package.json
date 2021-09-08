@@ -67,6 +67,7 @@
     "test:update": "jest -u"
   },
   "dependencies": {
+    "skypin": "^2.0.10",
     "unplugin": "^0.2.7"
   },
   "peerDependencies": {
