@@ -10,18 +10,18 @@ const defaults: Options = {
 
 export default createUnplugin<Options>(options => ({
   name: 'unplugin-skypin',
-  async resolveId(id: string) {
+  async resolveId(source: string) {
     options = { ...defaults, ...options }
 
-    const replace = options.replace(id)
+    const replace = options.replace(source)
 
-    if (replace && !(id.startsWith('.') || id.startsWith('https://') || id.startsWith('http://'))) {
-      return await skypin(typeof replace === 'string' ? replace : id, {
+    if (replace && !(source.match(/^\.|^src|^https?:\/\//))) {
+      return await skypin(typeof replace === 'string' ? replace : source, {
         min: options.minified,
         pin: options.pinned,
       })
     }
 
-    return id
+    return source
   },
 }))
