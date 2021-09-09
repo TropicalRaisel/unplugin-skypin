@@ -1,6 +1,6 @@
 {
   "name": "unplugin-skypin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Skypin plugin support across all Unplugin platforms.",
   "keywords": [
     "skypack",
