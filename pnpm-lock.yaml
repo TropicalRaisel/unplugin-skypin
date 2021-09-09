@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@antfu/eslint-config': ^0.8.1
+      '@skypack/package-check': ^0.2.2
       '@types/jest': ^27.0.1
       '@types/node': ^16.7.13
       bumpp: ^7.1.1
@@ -29,6 +30,7 @@ importers:
       unplugin: 0.2.7_aeebf921c72d0819043119a2d9589d03
     devDependencies:
       '@antfu/eslint-config': 0.8.1_eslint@7.32.0+typescript@4.4.2
+      '@skypack/package-check': 0.2.2
       '@types/jest': 27.0.1
       '@types/node': 16.7.13
       bumpp: 7.1.1
@@ -812,6 +814,14 @@ packages:
     resolution: {integrity: sha512-iQADsW4LBMISqZ6Ci1dupJL9pprqwcVFTcOsEmQOEhW+KLCVn/Y4Jrvg2k19fIHCp+iFprriYPTdRcQR8NbUPg==}
     dependencies:
       '@sinonjs/commons': 1.8.2
+    dev: true
+
+  /@skypack/package-check/0.2.2:
+    resolution: {integrity: sha512-T4Wyi9lUuz0a1C2OHuzqZ0aFOCI0AmaGTb2LP9sHgWdoHXlB3JU02gfBpa0Y081G/gFsJYpQ/R0iCJRzF/nknw==}
+    hasBin: true
+    dependencies:
+      kleur: 4.1.4
+      yargs-parser: 20.2.5
     dev: true
 
   /@szmarczak/http-timer/1.1.2:
@@ -4305,6 +4315,11 @@ packages:
 
   /kleur/3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+    dev: true
+
+  /kleur/4.1.4:
+    resolution: {integrity: sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==}
     engines: {node: '>=6'}
     dev: true
 
