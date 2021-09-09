@@ -1,5 +1,6 @@
 export interface Options {
+  packages: string[]
   minified: boolean
   pinned: boolean
-  replace: (module_id: string) => (boolean | string)
+  replace: boolean
 }

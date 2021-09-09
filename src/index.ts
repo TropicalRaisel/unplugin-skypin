@@ -3,34 +3,30 @@ import { skypin } from 'skypin'
 import { Options } from './types'
 
 const defaults: Options = {
+  packages: [],
   pinned: true,
   minified: true,
-  replace: () => true,
+  replace: true,
 }
 
-export default createUnplugin<Options>((options) => {
-  options = { ...defaults, ...options }
+export default createUnplugin<Options>(options => ({
+  name: 'unplugin-skypin',
+  enforce: 'post',
+  async resolveId(source: string) {
+    options = { ...defaults, ...options }
 
-  const skypinOptions = {
-    min: options.minified,
-    pin: options.pinned,
-  }
+    if (!source || options.packages.includes(source))
+      return source
 
-  return {
-    name: 'unplugin-skypin',
-    enforce: 'post',
-    async resolveId(source: string) {
-      if (!source || source.match(/^src/))
-        return source
-
-      const replace = options?.replace(source)
-
-      if (replace)
-        // https://github.com/MarshallCB/skypin/blob/main/src/index.ts#L49
-        return await skypin(typeof replace === 'string' ? replace : source, skypinOptions)
-    },
-    rollup: {
-      external: true,
-    },
-  }
-})
+    if (options.replace) {
+      // https://github.com/MarshallCB/skypin/blob/main/src/index.ts#L49
+      return await skypin(source, {
+        min: options.minified,
+        pin: options.pinned,
+      })
+    }
+  },
+  rollup: {
+    external: true,
+  },
+}))

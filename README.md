@@ -9,13 +9,13 @@ this plugin provides the same functionality across all the platforms supported b
 
 Uses parameters similar to RPS:
 
+- `packages` *(Type: String[], Default: `[]`)*: Declare the package imports that should be changed here. Unplugin performs some low-level operations that can involve accessing dependencies that were never intended to be.
 - `minified` *(Type: Boolean, Default: `true`)*: Whether to use minified assets.
 - `pinned` *(Type: Boolean, Default: `true`)*: Whether to use Skypack's [pinned](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized#generate-a-pinned-url) assets (recommended, even in development).
-- `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
+- `replace` *(Type: Boolean, Default: `true`)*: Toggles Skypack URL substitution.
 
-The other options are not included because only [package imports supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used.
-Imports in other formats should not be changed.
-External imports should be properly configured based on the framework used.
+[Package import formats supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used
+as the package import and *not* when declaring a package in `packages`.
 
 ## Usage
 
