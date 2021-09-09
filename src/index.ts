@@ -9,8 +9,10 @@ const defaults: Options = {
   replace: true,
 }
 
+const name = 'unplugin-skypin'
+
 export default createUnplugin<Options>(options => ({
-  name: 'unplugin-skypin',
+  name,
   enforce: 'post',
   async resolveId(id: string) {
     options = { ...defaults, ...options }
@@ -27,6 +29,7 @@ export default createUnplugin<Options>(options => ({
     }
   },
   rollup: {
+    name,
     api: {
       external: true,
     },
