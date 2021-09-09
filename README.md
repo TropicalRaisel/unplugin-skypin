@@ -35,12 +35,18 @@ npm i unplugin-skypin
 <summary>Vite</summary><br>
 
 ```ts
-// vite.config.ts
+// vite.config.js
 import skypin from 'unplugin-skypin/vite'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    skypin({ /* options */ }),
+    skypin({
+      packages: [
+        'hueman'
+      ],
+      /* other options */
+    }),
   ],
 })
 ```
