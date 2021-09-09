@@ -15,7 +15,7 @@ Uses parameters similar to RPS:
 - `replace` *(Type: Boolean, Default: `true`)*: Toggles Skypack URL substitution.
 
 [Package import formats supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used
-as the package import and *not* when declaring a package in `packages`.
+as the package import and when declaring a package in `packages`.
 
 ## Usage
 
@@ -35,7 +35,7 @@ npm i unplugin-skypin
 <summary>Vite</summary><br>
 
 ```ts
-// vite.config.js
+// vite.config.{m}js
 import skypin from 'unplugin-skypin/vite'
 import { defineConfig } from 'vite'
 
@@ -43,7 +43,7 @@ export default defineConfig({
   plugins: [
     skypin({
       packages: [
-        'hueman'
+        /* imports to change here */
       ],
       /* other options */
     }),
@@ -57,14 +57,24 @@ export default defineConfig({
 <summary>Rollup</summary><br>
 
 ```ts
-// rollup.config.js
+// rollup.config.{m}js
 import skypin from 'unplugin-skypin/rollup'
 
 export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'esm'
+  },
   plugins: [
-    skypin({ /* options */ }),
+    skypin({
+      packages: {
+        /* imports to change here */
+      },
+      /* other options */
+    }),
   ],
-}
+};
 ```
 
 <br></details>
@@ -74,7 +84,7 @@ export default {
 <summary>Webpack</summary><br>
 
 ```ts
-// webpack.config.js
+// webpack.config.{c}js
 module.exports = {
   /* ... */
   plugins: [
@@ -89,7 +99,7 @@ module.exports = {
 <summary>Nuxt</summary><br>
 
 ```ts
-// nuxt.config.js
+// nuxt.config.{m}js
 export default {
   buildModules: [
     ['unplugin-skypin/nuxt', { /* options */ }],
@@ -105,7 +115,7 @@ export default {
 <summary>Vue CLI</summary><br>
 
 ```ts
-// vue.config.js
+// vue.config.{c}js
 module.exports = {
   configureWebpack: {
     plugins: [
