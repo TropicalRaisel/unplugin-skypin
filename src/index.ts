@@ -27,6 +27,8 @@ export default createUnplugin<Options>(options => ({
     }
   },
   rollup: {
-    external: true,
+    api: {
+      external: true,
+    },
   },
 }))
