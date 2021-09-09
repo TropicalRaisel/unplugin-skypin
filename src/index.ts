@@ -32,7 +32,7 @@ export default createUnplugin<Options>((options) => {
     rollup: {
       name,
       api: {
-        external: true,
+        external: options?.packages,
       },
     },
   }
