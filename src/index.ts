@@ -10,6 +10,7 @@ const defaults: Options = {
 
 export default createUnplugin<Options>((options) => {
   options = { ...defaults, ...options }
+
   const skypinOptions = {
     min: options.minified,
     pin: options.pinned,
@@ -19,17 +20,17 @@ export default createUnplugin<Options>((options) => {
     name: 'unplugin-skypin',
     enforce: 'post',
     async resolveId(source: string) {
-      if (!source || source.match(/^\.|^src|^https?:\/\//))
+      if (!source || source.match(/^src/))
         return source
 
       const replace = options?.replace(source)
 
-      if (replace) {
-        const url = await skypin(typeof replace === 'string' ? replace : source, skypinOptions)
-
-        if (url)
-          return url
-      }
+      if (replace)
+        // https://github.com/MarshallCB/skypin/blob/main/src/index.ts#L49
+        return await skypin(typeof replace === 'string' ? replace : source, skypinOptions)
+    },
+    rollup: {
+      external: true,
     },
   }
 })
