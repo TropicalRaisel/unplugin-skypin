@@ -36,11 +36,11 @@ npm i unplugin-skypin
 
 ```ts
 // vite.config.ts
-import Skypin from 'unplugin-skypin/vite'
+import skypin from 'unplugin-skypin/vite'
 
 export default defineConfig({
   plugins: [
-    Skypin({ /* options */ }),
+    skypin({ /* options */ }),
   ],
 })
 ```
@@ -54,11 +54,11 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import Skypin from 'unplugin-skypin/rollup'
+import skypin from 'unplugin-skypin/rollup'
 
 export default {
   plugins: [
-    Skypin({ /* options */ }),
+    skypin({ /* options */ }),
   ],
 }
 ```
