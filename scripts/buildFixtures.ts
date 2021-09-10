@@ -18,11 +18,11 @@ async function run() {
       await fs.remove(join(path, 'dist'))
 
     logger.info(c.yellow.inverse.bold`\n  Vite  ${name} \n`)
-    execSync('pnpm dlx vite build', { cwd: path, stdio: 'inherit' })
+    execSync('pnpm vite build', { cwd: path, stdio: 'inherit' })
     logger.info(c.red.inverse.bold`\n  Rollup  ${name} \n`)
-    execSync('pnpm dlx rollup -c', { cwd: path, stdio: 'inherit' })
+    execSync('pnpm rollup -c', { cwd: path, stdio: 'inherit' })
     logger.info(c.blue.inverse.bold`\n  Webpack  ${name} \n`)
-    execSync('pnpm dlx webpack', { cwd: path, stdio: 'inherit' })
+    execSync('pnpm webpack', { cwd: path, stdio: 'inherit' })
   }
 }
 
