@@ -1,10 +1,10 @@
-import { resolve } from 'path'
+/* import { resolve } from 'path'
 import fs from 'fs-extra'
 
-const r = (...args: string[]) => resolve(__dirname, '../dist', ...args)
+const r = (...args: string[]) => resolve(__dirname, '../dist', ...args) */
 
-describe('transform build', () => {
-  it('vite', async() => {
+describe('inject skypack', () => {
+  /* it('vite', async() => {
     const content = await fs.readFile(r('vite/main.js.es.js'), 'utf-8')
 
     expect(content).toContain('NON-TARGET: hueman')
@@ -23,5 +23,5 @@ describe('transform build', () => {
 
     expect(content).toContain('NON-TARGET: hueman')
     expect(content).toContain('TARGET: [Injected Webpack]')
-  })
+  }) */
 })
