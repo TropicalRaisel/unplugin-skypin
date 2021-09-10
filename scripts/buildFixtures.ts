@@ -1,5 +1,5 @@
 import { resolve, join } from 'path'
-import { execSync } from 'child_process'
+// import { execSync } from 'child_process'
 import fs from 'fs-extra'
 import c from 'chalk'
 import { logger } from './testLog'
