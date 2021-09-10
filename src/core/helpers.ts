@@ -1,5 +1,5 @@
 import { skypin } from 'skypin'
-import { Options } from '../types'
+import { Options, ResolvedOptions } from '../types'
 
 export async function generateValidUrls(options: Options): Promise<ResolvedOptions> {
   const urls = new Map<String, String>()

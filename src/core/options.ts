@@ -1,7 +1,7 @@
 import { Options, ResolvedOptions } from '../types'
 import { generateValidUrls } from './helpers'
 
-export function resolveOptions(options = {}): ResolvedOptions {
+export async function resolveOptions(options = {}): ResolvedOptions {
   const defaults: Options = {
     packages: [],
     pinned: true,
