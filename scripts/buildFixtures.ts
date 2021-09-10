@@ -2,7 +2,7 @@ import { resolve, join } from 'path'
 import { execSync } from 'child_process'
 import fs from 'fs-extra'
 import c from 'chalk'
-import { testLog } from '../src/core/logging'
+import { logger } from './testLog'
 
 async function run() {
   const dir = resolve(__dirname, '../test')
@@ -17,11 +17,11 @@ async function run() {
     if (fs.existsSync(join(path, 'dist')))
       await fs.remove(join(path, 'dist'))
 
-    testLog.info(c.yellow.inverse.bold`\n  Vite  ${name} \n`)
+    logger.info(c.yellow.inverse.bold`\n  Vite  ${name} \n`)
     execSync('pnpm dlx vite build', { cwd: path, stdio: 'inherit' })
-    testLog.info(c.red.inverse.bold`\n  Rollup  ${name} \n`)
+    logger.info(c.red.inverse.bold`\n  Rollup  ${name} \n`)
     execSync('pnpm dlx rollup -c', { cwd: path, stdio: 'inherit' })
-    testLog.info(c.blue.inverse.bold`\n  Webpack  ${name} \n`)
+    logger.info(c.blue.inverse.bold`\n  Webpack  ${name} \n`)
     execSync('pnpm dlx webpack', { cwd: path, stdio: 'inherit' })
   }
 }
