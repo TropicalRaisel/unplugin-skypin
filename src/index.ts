@@ -22,11 +22,5 @@ export default createUnplugin<Options>((options) => {
         })
       }
     },
-    rollup: {
-      name,
-      api: {
-        external: settings.packages,
-      },
-    },
   }
 })

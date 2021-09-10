@@ -5,7 +5,9 @@ import { Category, CategoryServiceFactory, CategoryLogger, CategoryConfiguration
 CategoryServiceFactory.setDefaultConfiguration(new CategoryConfiguration(LogLevel.Info))
 
 // Create categories, they will autoregister themselves, one category without parent (root) and a child category.
-const infoLogger = new Category('skypin-info')
+const genericLogger = new Category('skypin')
+const testLogger = new Category('skypin-test')
 
 // Optionally get a logger for a category, since 0.5.0 this is not necessary anymore, you can use the category itself to log.
-export const log: CategoryLogger = CategoryServiceFactory.getLogger(infoLogger)
+export const log: CategoryLogger = CategoryServiceFactory.getLogger(genericLogger)
+export const testLog: CategoryLogger = CategoryServiceFactory.getLogger(testLogger)

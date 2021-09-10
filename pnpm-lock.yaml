@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^0.8.1
       '@skypack/package-check': ^0.2.2
+      '@types/fs-extra': ^9.0.12
       '@types/jest': ^27.0.1
       '@types/node': ^16.7.13
       bumpp: ^7.1.1
@@ -13,7 +14,9 @@ importers:
       eslint-plugin-jest: ^24.4.0
       esno: ^0.9.1
       fast-glob: ^3.2.7
+      fs-extra: ^10.0.0
       jest: ^27.1.1
+      jiti: ^1.11.0
       nodemon: ^2.0.12
       npm-check-updates: ^11.8.5
       rimraf: ^3.0.2
@@ -32,6 +35,7 @@ importers:
     devDependencies:
       '@antfu/eslint-config': 0.8.1_eslint@7.32.0+typescript@4.4.2
       '@skypack/package-check': 0.2.2
+      '@types/fs-extra': 9.0.12
       '@types/jest': 27.0.1
       '@types/node': 16.7.13
       bumpp: 7.1.1
@@ -39,7 +43,9 @@ importers:
       eslint-plugin-jest: 24.4.0_eslint@7.32.0+typescript@4.4.2
       esno: 0.9.1
       fast-glob: 3.2.7
+      fs-extra: 10.0.0
       jest: 27.1.1
+      jiti: 1.11.0
       nodemon: 2.0.12
       npm-check-updates: 11.8.5
       rimraf: 3.0.2
@@ -883,6 +889,12 @@ packages:
 
   /@types/estree/0.0.50:
     resolution: {integrity: sha512-C6N5s2ZFtuZRj54k2/zyRhNDjJwwcViAM3Nbm8zjBpbqAdZ00mr0CFxvSKeO8Y/e03WVFLpQMdHYVfUd6SB+Hw==}
+    dev: true
+
+  /@types/fs-extra/9.0.12:
+    resolution: {integrity: sha512-I+bsBr67CurCGnSenZZ7v94gd3tc3+Aj2taxMT4yu4ABLuOgOjeFxX3dokG24ztSRg5tnT00sL8BszO7gSMoIw==}
+    dependencies:
+      '@types/node': 16.7.13
     dev: true
 
   /@types/graceful-fs/4.1.5:
@@ -2954,6 +2966,15 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /fs-extra/10.0.0:
+    resolution: {integrity: sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.8
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs-minipass/2.1.0:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==}
     engines: {node: '>= 8'}
@@ -4141,6 +4162,11 @@ packages:
       - utf-8-validate
     dev: true
 
+  /jiti/1.11.0:
+    resolution: {integrity: sha512-/2c7e61hxxTIN34UeHBB0LCJ5Tq64kgJDV7GR+++e8XRxCKRIKmB8tH6ww1W+Z6Kgd6By+C3RSCu1lXjbPT68A==}
+    hasBin: true
+    dev: true
+
   /jju/1.4.0:
     resolution: {integrity: sha1-o6vicYryQaKykE+EpiWXDzia4yo=}
     dev: true
@@ -4286,6 +4312,14 @@ packages:
 
   /jsonc-parser/3.0.0:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
+    dev: true
+
+  /jsonfile/6.1.0:
+    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+    dependencies:
+      universalify: 2.0.0
+    optionalDependencies:
+      graceful-fs: 4.2.8
     dev: true
 
   /jsonlines/0.1.1:
@@ -6402,6 +6436,11 @@ packages:
   /universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
+    dev: true
+
+  /universalify/2.0.0:
+    resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+    engines: {node: '>= 10.0.0'}
     dev: true
 
   /unplugin/0.2.7_aeebf921c72d0819043119a2d9589d03:
