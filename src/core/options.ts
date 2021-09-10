@@ -5,7 +5,7 @@ export function resolveOptions(options = {}): Options {
     packages: [],
     pinned: true,
     minified: true,
-    replace: true,
+    replace: () => true,
   }
 
   return { ...defaults, ...options }
