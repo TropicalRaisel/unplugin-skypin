@@ -9,9 +9,9 @@ export default createUnplugin<Options>((options) => {
 
   return {
     name,
-    enforce: 'post',
+    enforce: 'pre', // https://rollupjs.org/guide/en/#build-hooks
     async resolveId(id: string) {
-      if (!id || !settings.packages.includes(id))
+      if (!settings.packages.includes(id))
         return id
 
       if (settings.replace) {
