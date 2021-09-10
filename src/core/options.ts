@@ -1,6 +1,7 @@
-import { Options } from '../types'
+import { Options, ResolvedOptions } from '../types'
+import { generateValidUrls } from './helpers'
 
-export function resolveOptions(options = {}): Options {
+export function resolveOptions(options = {}): ResolvedOptions {
   const defaults: Options = {
     packages: [],
     pinned: true,
@@ -8,5 +9,5 @@ export function resolveOptions(options = {}): Options {
     replace: () => true,
   }
 
-  return { ...defaults, ...options }
+  return await generateValidUrls({ ...defaults, ...options })
 }

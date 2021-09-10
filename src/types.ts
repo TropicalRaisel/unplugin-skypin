@@ -4,3 +4,7 @@ export interface Options {
   pinned: boolean
   replace: (id: string) => (boolean | string)
 }
+
+export interface ResolvedOptions extends Options {
+  urls: Map<string, string>
+}
