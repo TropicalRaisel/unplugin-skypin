@@ -68,11 +68,11 @@
   },
   "dependencies": {
     "skypin": "^2.0.11",
-    "unplugin": "^0.2.7"
+    "unplugin": "^0.2.8"
   },
   "peerDependencies": {
     "skypin": "^2.0.11",
-    "unplugin": "^0.2.7"
+    "unplugin": "^0.2.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.8.1",

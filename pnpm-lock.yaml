@@ -26,13 +26,13 @@ importers:
       tsup: ^4.14.0
       typescript: ^4.4.3
       typescript-logging: ^1.0.0
-      unplugin: ^0.2.7
+      unplugin: ^0.2.8
       vite: ^2.5.6
       webpack: ^5.52.1
       webpack-cli: ^4.8.0
     dependencies:
       skypin: 2.0.11
-      unplugin: 0.2.7_de460094ce6f57c74e0ea0571650a4c0
+      unplugin: 0.2.8_de460094ce6f57c74e0ea0571650a4c0
     devDependencies:
       '@antfu/eslint-config': 0.8.1_eslint@7.32.0+typescript@4.4.3
       '@skypack/package-check': 0.2.2
@@ -6536,8 +6536,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unplugin/0.2.7_de460094ce6f57c74e0ea0571650a4c0:
-    resolution: {integrity: sha512-KcMTl+aF+UhNOUvUdxwxHiOhvIoFe++foE2GgblFmXsnjdRYYggd2Tg7wopljCnOyiv5IspQRKfAvpyc4qtzuw==}
+  /unplugin/0.2.8_de460094ce6f57c74e0ea0571650a4c0:
+    resolution: {integrity: sha512-6QsdpTNteT5lZO3tGcCwkXWzieXuM0uA0n5rpT8j+/K6BNRlHyQcQ2hpA6KLWR6hlzmXsas/ZCaGhOiiOMAGYg==}
     peerDependencies:
       rollup: ^2.50.0
       vite: ^2.3.0
