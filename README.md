@@ -61,20 +61,20 @@ export default defineConfig({
 import skypin from 'unplugin-skypin/rollup'
 
 export default {
-  input: 'src/main.js',
+  input: 'src/index.js',
   output: {
-    file: 'bundle.js',
-    format: 'esm'
+    dir: 'dist',
+    format: 'esm',
   },
   plugins: [
     skypin({
-      packages: {
+      packages: [
         /* imports to change here */
-      },
+      ],
       /* other options */
     }),
   ],
-};
+}
 ```
 
 <br></details>
