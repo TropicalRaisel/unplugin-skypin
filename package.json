@@ -80,6 +80,7 @@
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.1",
+    "beautiful-dom": "^1.0.9",
     "bumpp": "^7.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",

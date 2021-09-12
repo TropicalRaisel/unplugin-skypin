@@ -1,5 +1,6 @@
 import { createUnplugin } from 'unplugin'
 import { skypin } from 'skypin'
+// import BeautifulDom from 'beautiful-dom'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
 
@@ -29,6 +30,12 @@ export default createUnplugin<Options>((options, meta) => {
         return meta.framework !== 'webpack' ? { id: url, external: true } : url
       }
       return id
+    },
+    transform(code: string, filename: string) {
+      if (meta.framework === 'webpack' && filename.endsWith('.html')) {
+        // const dom = new BeautifulDom(code)
+      }
+      return code
     },
   }
 })
