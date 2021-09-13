@@ -1,13 +1,25 @@
 # unplugin-skypin
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-skypin?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-skypin)
-
-Inspired by [rollup-plugin-skypin](https://github.com/MarshallCB/rollup-plugin-skypin#usage),
-this plugin provides the same functionality across all the platforms supported by Unplugin!
+<p align="center">
+  <p>Bringing <a href="https://docs.skypack.dev/#skypack-vs-traditional-cdns">Skypack's power</a> to platforms supported by <a href="https://github.com/unjs/unplugin#unplugin">Unplugin</a>!</p>
+  <p>⚡ <span style="color:yellow">Vite</span> | 🍣 <span style="color:red">Rollup</span> | ⛛ <span style="color:lightgreen">Nuxt</span> | <strike>📦 <span style="color:lightblue">Webpack 4-5</span> </strike></p>
+  <hr>
+  <p>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></p>
+  <hr>
+  <p>
+    <a href="https://www.npmjs.com/package/unplugin-skypin">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/unplugin-skypin?color=a1b858&label=npm">
+    </a>
+    <a href="https://david-dm.org/TropicalRaisel/unplugin-skypin">
+      <img alt="Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg">
+    </a>
+    <a href="https://david-dm.org/TropicalRaisel/unplugin-skypin?type=dev">
+      <img alt="Dev Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg?type=dev">
+    </a>
+  </p>
+</p>
 
 ## Options
-
-Uses parameters similar to RPS:
 
 - `packages` *(Type: String[], Default: `[]`)*: Declare the package imports that should be changed here. Unplugin performs some low-level operations that can involve accessing dependencies that were never intended to be.
 - `minified` *(Type: Boolean, Default: `true`)*: Whether to use minified assets.
@@ -17,19 +29,12 @@ Uses parameters similar to RPS:
 [Package import formats supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used
 as the package import and when declaring a package in `packages`.
 
+## Notes
+
+- Nuxt is supposed to work but has not yet been tested.
+- Webpack is not currently supported.
+
 ## Usage
-
-```bash
-pnpm i
-```
-
-Check the `package.json` for the available scripts.
-
-## Install
-
-```bash
-npm i unplugin-skypin
-```
 
 <details>
 <summary>Vite</summary><br>
@@ -126,3 +131,11 @@ module.exports = {
 ```
 
 <br></details>
+
+## Development
+
+```bash
+pnpm i
+```
+
+Check the `package.json` for the available scripts.
