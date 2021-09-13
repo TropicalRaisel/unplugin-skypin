@@ -77,9 +77,11 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.8.2",
     "@skypack/package-check": "^0.2.2",
+    "@symfony/webpack-encore": "^1.6.1",
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.1",
+    "@types/webpack": "^5.28.0",
     "beautiful-dom": "^1.0.9",
     "bumpp": "^7.1.1",
     "eslint": "^7.32.0",

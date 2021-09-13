@@ -1,8 +1,9 @@
 import { createUnplugin } from 'unplugin'
 import { skypin } from 'skypin'
-// import BeautifulDom from 'beautiful-dom'
+import BeautifulDom from 'beautiful-dom'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
+// import { Compiler, Dependency } from 'webpack'
 
 export default createUnplugin<Options>((options, meta) => {
   const settings = resolveOptions(options)
@@ -33,9 +34,21 @@ export default createUnplugin<Options>((options, meta) => {
     },
     transform(code: string, filename: string) {
       if (meta.framework === 'webpack' && filename.endsWith('.html')) {
-        // const dom = new BeautifulDom(code)
+        const dom = new BeautifulDom(code)
+
+        for (const id of urls.keys()) {
+          const attr = `src=${id}`
+          const src = dom.querySelector(`script[${attr}]`)
+
+          if (src) {
+            code.replace(new RegExp(src.outerHTML), (match) => {
+              return match.replace(attr, `src=${urls.get(id)}`)
+            })
+          }
+        }
       }
       return code
     },
+    // webpack(compiler: Compiler) { },
   }
 })

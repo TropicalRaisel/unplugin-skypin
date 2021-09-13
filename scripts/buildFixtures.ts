@@ -19,7 +19,7 @@ async function run() {
 
     console.log(c.yellow.inverse.bold`\n  Vite  `, name, '\n')
     execSync('npx vite build', { cwd: path, stdio: 'inherit' })
-    console.log(c.redBright.inverse.bold`\n  Rollup  `, name, '\n')
+    console.log(c.red.inverse.bold`\n  Rollup  `, name, '\n')
     execSync('npx rollup -c', { cwd: path, stdio: 'inherit' })
     // console.log(c.blue.inverse.bold`\n  Webpack  `, name, '\n')
     // execSync('npx webpack', { cwd: path, stdio: 'inherit' })
