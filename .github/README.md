@@ -5,13 +5,13 @@
   <p>
     <a href="https://vitejs.dev/">
       <img alt="Vite Logo" src="./images/vite.svg" width="16" height="16"> Vite
-    </a> | <a href="https://rollupjs.org/guide/en/#overview">
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://rollupjs.org/guide/en/#overview">
       <img alt="Rollup Logo" src="./images/rollup.svg" width="16" height="16"> Rollup
-    </a> | <a href="https://nuxtjs.org/">
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://nuxtjs.org/">
       <img alt="Nuxt Logo" src="./images/nuxt.svg" width="16" height="16"> Nuxt
-    </a> | <strike><a href="https://webpack.js.org/concepts/">
-      <img alt="Webpack Logo" src="./images/webpack.svg" width="16" height="16"> Webpack 4-5
-    </a></strike>
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://webpack.js.org/concepts/">
+      <img alt="Webpack Logo" src="./images/webpack.svg" width="16" height="16"> <strike>Webpack 4-5</strike>
+    </a>
   </p>
   <hr>
   <p>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></p>
