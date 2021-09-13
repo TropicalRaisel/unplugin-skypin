@@ -8,7 +8,7 @@
   <hr>
   <p>
     <a href="https://www.npmjs.com/package/unplugin-skypin">
-      <img alt="NPM Version" src="https://img.shields.io/npm/v/unplugin-skypin?color=a1b858&label=npm">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/unplugin-skypin?logo=npm&label=npm&color=CB3837">
     </a>
     <a href="https://david-dm.org/TropicalRaisel/unplugin-skypin">
       <img alt="Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg">
