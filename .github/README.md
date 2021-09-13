@@ -4,13 +4,13 @@
   <p>Bringing <a href="https://docs.skypack.dev/#skypack-vs-traditional-cdns">Skypack's power</a> to platforms supported by <a href="https://github.com/unjs/unplugin#unplugin">Unplugin</a>!</p>
   <p>
     <a href="https://vitejs.dev/">
-      <img alt="Vite Logo" src="./images/vite.svg"> Vite
+      <img alt="Vite Logo" src="./images/vite.svg" width="32" height="32"> Vite
     </a> | <a href="https://rollupjs.org/guide/en/#overview">
-      <img alt="Rollup Logo" src="./images/rollup.svg"> Rollup
+      <img alt="Rollup Logo" src="./images/rollup.svg" width="32" height="32"> Rollup
     </a> | <a href="https://nuxtjs.org/">
-      <img alt="Nuxt Logo" src="./images/nuxt.svg"> Nuxt
+      <img alt="Nuxt Logo" src="./images/nuxt.svg" width="32" height="32"> Nuxt
     </a> | <strike><a href="https://webpack.js.org/concepts/">
-      <img alt="Webpack Logo" src="./images/webpack.svg"> Webpack 4-5
+      <img alt="Webpack Logo" src="./images/webpack.svg" width="32" height="32"> Webpack 4-5
     </a></strike>
   </p>
   <hr>
