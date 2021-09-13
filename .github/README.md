@@ -1,8 +1,18 @@
 # unplugin-skypin
 
-<p align="center">
+<div align="center">
   <p>Bringing <a href="https://docs.skypack.dev/#skypack-vs-traditional-cdns">Skypack's power</a> to platforms supported by <a href="https://github.com/unjs/unplugin#unplugin">Unplugin</a>!</p>
-  <p>⚡ <span style="color:yellow">Vite</span> | 🍣 <span style="color:red">Rollup</span> | ⛛ <span style="color:lightgreen">Nuxt</span> | <strike>📦 <span style="color:lightblue">Webpack 4-5</span> </strike></p>
+  <p>
+    <a href="https://vitejs.dev/">
+      <img alt="Vite Logo" src="./images/vite.svg"> Vite
+    </a> | <a href="https://rollupjs.org/guide/en/#overview">
+      <img alt="Rollup Logo" src="./images/rollup.svg"> Rollup
+    </a> | <a href="https://nuxtjs.org/">
+      <img alt="Nuxt Logo" src="./images/nuxt.svg"> Nuxt
+    </a> | <strike><a href="https://webpack.js.org/concepts/">
+      <img alt="Webpack Logo" src="./images/webpack.svg"> Webpack 4-5
+    </a></strike>
+  </p>
   <hr>
   <p>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></p>
   <hr>
@@ -17,7 +27,7 @@
       <img alt="Dev Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg?type=dev">
     </a>
   </p>
-</p>
+</div>
 
 ## Options
 
