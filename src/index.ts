@@ -17,12 +17,8 @@ export default createUnplugin<Options>((options, meta) => {
       for (const id of settings.packages) {
         const sub = settings.replace(id)
 
-        if (sub) {
-          urls.set(typeof sub === 'string' ? sub : id, await skypin(id, {
-            min: settings.minified,
-            pin: settings.pinned,
-          }))
-        }
+        if (sub)
+          urls.set(typeof sub === 'string' ? sub : id, await skypin(id, settings.skypin))
       }
     },
     resolveId(id: string) {

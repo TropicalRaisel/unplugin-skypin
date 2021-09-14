@@ -3,8 +3,10 @@ import { Options } from '../types'
 export function resolveOptions(options = {}): Options {
   const defaults: Options = {
     packages: [],
-    pinned: true,
-    minified: true,
+    skypin: {
+      min: true,
+      pin: true,
+    },
     replace: () => true,
   }
 

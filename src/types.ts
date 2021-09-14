@@ -1,6 +1,7 @@
+export type SkypinOptions = { min: boolean; pin: boolean }
+
 export interface Options {
   packages: string[]
-  minified: boolean
-  pinned: boolean
+  skypin: SkypinOptions
   replace: (id: string) => (boolean | string)
 }

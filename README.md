@@ -1,6 +1,6 @@
-# unplugin-skypin
-
 <div align="center">
+  <img alt="Skypin Logo" src="https://github.com/marshallcb/skypin/raw/main/meta/skypin.png" width="300">
+  <h1>unplugin-skypin</h1>
   <p>Bringing <a href="https://docs.skypack.dev/#skypack-vs-traditional-cdns">Skypack's power</a> to platforms supported by <a href="https://github.com/unjs/unplugin#unplugin">Unplugin</a>!</p>
   <p>
     <a href="https://vitejs.dev/">
@@ -14,7 +14,7 @@
     </a>
   </p>
   <hr>
-  <p>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></p>
+  <h4>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></h4>
   <hr>
   <p>
     <a href="https://www.npmjs.com/package/unplugin-skypin">
@@ -32,8 +32,7 @@
 ## Options
 
 - `packages` *(Type: String[], Default: `[]`)*: Declare the package imports that should be changed here. Unplugin performs some low-level operations that can involve accessing dependencies that were never intended to be.
-- `minified` *(Type: Boolean, Default: `true`)*: Whether to use minified assets.
-- `pinned` *(Type: Boolean, Default: `true`)*: Whether to use Skypack's [pinned](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized#generate-a-pinned-url) assets (recommended, even in development).
+- `skypin` *(Type: Object, Default: `{ min: true, pin: true }`)*: Passes on [Skypin's configuration options](https://github.com/MarshallCB/skypin/blob/main/readme.md#skypinmodule_id-options---url).
 - `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
 
 [Package import formats supported by Skypin](https://github.com/marshallcb/skypin#skypinmodule_id-options---url) should be used
