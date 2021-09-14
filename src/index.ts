@@ -19,7 +19,7 @@ async function skypack(id: string, min = true): Promise<string> {
     })
     const headers = response.headers as NodeJS.Dict<string>
     const status = headers['x-import-status']
-    let pin = headers['x-pinned-url'] || headers['x-import-url'] || status
+    const pin = headers['x-pinned-url'] || headers['x-import-url'] || status
 
     if (pin && pin !== status) {
       switch (status) {
@@ -28,8 +28,7 @@ async function skypack(id: string, min = true): Promise<string> {
           if (pin.startsWith('/error/'))
             throw new Error('Skypack reported a build error! Create an issue here: https://github.com/skypackjs/skypack-cdn/issues')
 
-          pin = min ? pin.replace('mode=imports', 'mode=imports,min') : pin
-          return SKYPACK_URL.concat(pin)
+          return SKYPACK_URL.concat(min ? pin.replace('mode=imports', 'mode=imports,min') : pin)
         case 'NEW':
           // https://docs.skypack.dev/skypack-cdn/api-reference/private-urls#new-new-package-urls
           return await skypack(id, min)
