@@ -1,9 +1,53 @@
 import { createUnplugin } from 'unplugin'
-import { skypin } from 'skypin'
-import BeautifulDom from 'beautiful-dom'
+import got from 'got'
+import { valid } from 'semver'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
-// import { Compiler, Dependency } from 'webpack'
+import { log } from './core/log'
+
+export const SKYPACK_URL = 'https://cdn.skypack.dev'
+
+async function skypack(id: string, min = true): Promise<string> {
+  // If the dependency is relative, remote, or has an invalid version, skip it
+  if (id.match(/^\.|^\/|^https?:\/\/|\.m?c?js$/) || (id.includes('@', 1) && !valid(id.split('@')[1])))
+    return id
+
+  try {
+    const response = await got(id, {
+      prefixUrl: SKYPACK_URL,
+      http2: true,
+    })
+    const headers = response.headers as NodeJS.Dict<string>
+    const status = headers['x-import-status']
+    const dep = headers['x-import-url']
+    let pin = headers['x-pinned-url'] || dep || status
+
+    if (pin && pin !== status) {
+      pin = min ? pin.replace('mode=imports', 'mode=imports,min') : pin
+
+      switch (status) {
+        case 'SUCCESS':
+          // https://docs.skypack.dev/skypack-cdn/api-reference/private-urls#error-package-error-urls
+          if (pin.startsWith('/error/'))
+            throw new Error('Skypack reported a build error! Create an issue here: https://github.com/skypackjs/skypack-cdn/issues')
+
+          return SKYPACK_URL.concat(pin)
+        case 'NEW':
+          // https://docs.skypack.dev/skypack-cdn/api-reference/private-urls#new-new-package-urls
+          return await skypack(id, min)
+        default:
+          throw new Error(`Unknown Skypack status; please report this! <${status}>`)
+      }
+    }
+
+    throw new Error('Skypack did not return any valid reponse!')
+  }
+  catch (err) {
+    log.error('COULD NOT GET SKYPACKAGE!', err as Error)
+  }
+
+  return id
+}
 
 export default createUnplugin<Options>((options, meta) => {
   const settings = resolveOptions(options)
@@ -18,7 +62,7 @@ export default createUnplugin<Options>((options, meta) => {
         const sub = settings.replace(id)
 
         if (sub)
-          urls.set(typeof sub === 'string' ? sub : id, await skypin(id, settings.skypin))
+          urls.set(typeof sub === 'string' ? sub : id, await skypack(id, settings.minify))
       }
     },
     resolveId(id: string) {
@@ -28,7 +72,7 @@ export default createUnplugin<Options>((options, meta) => {
       }
       return id
     },
-    transform(code: string, filename: string) {
+    /* transform(code: string, filename: string) {
       if (meta.framework === 'webpack' && filename.endsWith('.html')) {
         const dom = new BeautifulDom(code)
 
@@ -45,6 +89,6 @@ export default createUnplugin<Options>((options, meta) => {
       }
       return code
     },
-    // webpack(compiler: Compiler) { },
+    webpack(compiler: Compiler) {}, */
   }
 })
