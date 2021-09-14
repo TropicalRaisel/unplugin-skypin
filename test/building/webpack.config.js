@@ -9,11 +9,11 @@ if (!Encore.isRuntimeEnvironmentConfigured())
 
 Encore
   // directory where compiled assets will be stored
-  .setOutputPath('dist/webpack/')
+  .setOutputPath(resolve(__dirname, 'dist/webpack/'))
   // public path used by the web server to access the output path
-  .setPublicPath('/webpack')
+  .setPublicPath(resolve(__dirname, '/webpack'))
   // only needed for CDN's or sub-directory deploy
-  // .setManifestKeyPrefix('webpack/')
+  .setManifestKeyPrefix(resolve(__dirname, 'webpack/'))
 
   /*
    * ENTRY CONFIG
@@ -24,7 +24,7 @@ Encore
    * Each entry will result in one JavaScript file (e.g. app.js)
    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
    */
-  .addEntry('app', resolve(__dirname, 'src/index.js'))
+  .addEntry('app', resolve(__dirname, 'assets/app.js'))
   // .addEntry('page1', './assets/page1.js')
   // .addEntry('page2', './assets/page2.js')
 
@@ -54,7 +54,7 @@ Encore
     config.corejs = 3
   })
 
-  .addPlugin(require('unplugin-skypin/webpack'))
+  .addPlugin(require('unplugin-skypin/webpack').default)
 
 // enables Sass/SCSS support
 // .enableSassLoader()
