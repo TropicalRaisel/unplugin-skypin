@@ -19,12 +19,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          # cache: 'pnpm'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      - run: npm test
-      # - run: pnpm i
-      # - run: pnpm test
+      - run: pnpm add -g @antfu/ni
+      - run: nci
+      - run: nr test --if-present
+      # Publish to the Node Package Registry
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -33,11 +33,10 @@ jobs:
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Publish to GitHub Packages
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-          # cache: 'pnpm'
-          registry-url: 'https://npm.pkg.github.com'
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: actions/setup-node@v2
+        # with:
+          # node-version: '14.x'
+          # registry-url: 'https://npm.pkg.github.com'
+      # - run: npm publish
+        # env:
+          # NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
