@@ -25,7 +25,8 @@ function hasValidVersion(id: string): boolean {
 }
 
 async function skypack(id: string, min = true): Promise<string> {
-  // If the dependency is not a scoped package, is remote or relative, or has an invalid version, ignore it.
+  // If the dependency is remote or relative, or has an invalid version, ignore it.
+  // The '@' character is checked at the start to determine if the package is scoped.
   if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !hasValidVersion(id))
     return id
 
