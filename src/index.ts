@@ -1,6 +1,5 @@
 import { createUnplugin } from 'unplugin'
 import got from 'got'
-import { valid } from 'semver'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
 import { log } from './core/log'
@@ -9,7 +8,11 @@ export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
 async function skypack(id: string, min = true): Promise<string> {
   // If the dependency is relative, remote, or has an invalid version, skip it
-  if (id.match(/^\.|^\/|^https?:\/\/|\.m?c?js$/) || (id.includes('@', 1) && !valid(id.split('@')[1])))
+  /* if (id.match(/^\.|^\/|^https?:\/\/|\.m?c?js$/) || (id.includes('@', 1) && !valid(id.split('@')[1])))
+    return id */
+
+  // If the dependency is not a scoped package and has a forward-slash or period it's remote or relative so ignore it
+  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.'))
     return id
 
   try {

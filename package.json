@@ -69,7 +69,6 @@
   },
   "dependencies": {
     "got": "^11.8.2",
-    "semver": "^7.3.5",
     "unplugin": "^0.2.9"
   },
   "peerDependencies": {
@@ -81,7 +80,6 @@
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.1",
-    "@types/semver": "^7.3.8",
     "@types/webpack": "^5.28.0",
     "beautiful-dom": "^1.0.9",
     "bumpp": "^7.1.1",
