@@ -6,13 +6,27 @@ import { log } from './core/log'
 
 export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
-async function skypack(id: string, min = true): Promise<string> {
-  // If the dependency is relative, remote, or has an invalid version, skip it
-  /* if (id.match(/^\.|^\/|^https?:\/\/|\.m?c?js$/) || (id.includes('@', 1) && !valid(id.split('@')[1])))
-    return id */
+function hasValidVersion(id: string): boolean {
+  // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
+  if (!id.includes('@', 1))
+    return true // no version is valid
 
-  // If the dependency is not a scoped package and has a forward-slash or period it's remote or relative so ignore it
-  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.'))
+  let version = id.split('@')[1]
+
+  if (version.match(/^[a-z]+$/))
+    return true // assume this is a dist-tag: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag | https://docs.npmjs.com/adding-dist-tags-to-packages
+
+  if (version[0].match(/^(\~|\^)/))
+    version = version.slice(1)
+
+  // semver 2.0.0: https://regex101.com/r/vkijKf/1/
+  const semver = version.match(/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/)
+  return (semver && semver.length > 0) || false
+}
+
+async function skypack(id: string, min = true): Promise<string> {
+  // If the dependency is not a scoped package, is remote or relative, or has an invalid version, ignore it.
+  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !hasValidVersion(id))
     return id
 
   try {
