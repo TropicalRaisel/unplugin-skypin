@@ -23,6 +23,8 @@ async function run() {
     execSync('npx rollup -c', { cwd: path, stdio: 'inherit' })
     // console.log(c.green.inverse.bold`\n  Nuxt  `, name, '\n')
     // execSync('npx nuxt build', { cwd: path, stdio: 'inherit' })
+    // console.log(c.cyan.inverse.bold`\n  Snowpack  `, name, '\n')
+    // execSync('npx snowpack build', { cwd: path, stdio: 'inherit' })
     // console.log(c.blue.inverse.bold`\n  Webpack  `, name, '\n')
     // execSync('npx webpack', { cwd: path, stdio: 'inherit' })
   }
