@@ -4,17 +4,17 @@
   <p>Bringing <a href="https://docs.skypack.dev/#skypack-vs-traditional-cdns">Skypack's power</a> to platforms supported by <a href="https://github.com/unjs/unplugin#unplugin">Unplugin</a>!</p>
   <p>
     <a href="https://vitejs.dev/">
-      <img alt="Vite Logo" src="./.github/images/vite.svg" width="16" height="16"> Vite
+      <img alt="Vite Logo" src="./.github/images/vite.svg" width="16" height="16">&nbsp;Vite
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://rollupjs.org/guide/en/#overview">
-      <img alt="Rollup Logo" src="./.github/images/rollup.svg" width="16" height="16"> Rollup
+      <img alt="Rollup Logo" src="./.github/images/rollup.svg" width="16" height="16">&nbsp;Rollup
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://nuxtjs.org/">
-      <img alt="Nuxt Logo" src="./.github/images/nuxt.svg" width="16" height="16"> Nuxt
+      <img alt="Nuxt Logo" src="./.github/images/nuxt.svg" width="16" height="16">&nbsp;Nuxt
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://webpack.js.org/concepts/">
-      <img alt="Webpack Logo" src="./.github/images/webpack.svg" width="16" height="16"> <strike>Webpack 4-5</strike>
+      <img alt="Webpack Logo" src="./.github/images/webpack.svg" width="16" height="16">&nbsp;<strike>Webpack 4-5</strike>
     </a>
   </p>
   <hr>
-  <h4>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></h4>
+  <h5>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></h5>
   <hr>
   <p>
     <a href="https://www.npmjs.com/package/unplugin-skypin">

@@ -1,10 +1,10 @@
 import skypin from 'unplugin-skypin/rollup'
 
-/** @type {import("snowpack").SnowpackUserConfig } */
+/** @type { import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
-    public: { url: '/', static: true },
-    src: { url: '/dist' },
+    // public: { url: '/', static: true },
+    src: { url: '/' },
   },
   plugins: [
     /* ... */
