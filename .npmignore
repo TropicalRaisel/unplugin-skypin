@@ -1,0 +1,10 @@
+*.json
+*.yaml
+.github/
+.scripts/
+test/
+.editorconfig
+.eslintignore
+.eslintrc
+.gitignore
+jest.config.js
