@@ -100,7 +100,7 @@
     "rollup": "^2.56.3",
     "snowpack": "^3.8.8",
     "ts-jest": "^27.0.5",
-    "tsup": "^4.14.0",
+    "tsup": "^5.0.0",
     "typescript": "^4.4.3",
     "typescript-logging": "^1.0.0",
     "vite": "^2.5.7",
