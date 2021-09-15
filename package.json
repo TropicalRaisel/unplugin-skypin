@@ -66,7 +66,7 @@
     "lint": "eslint \"{src,scripts,test}/**/*.ts\"",
     "lint:fix": "pnpm lint -- --fix",
     "prepublishOnly": "pnpm build",
-    "release": "bumpp --commit --push --tag && pnpm publish",
+    "release": "bumpp --commit --push --tag",
     "start": "esno src/index.ts",
     "test": "pnpm lint && pnpm test:build && jest",
     "test:build": "pnpm build && jiti scripts/buildFixtures.ts"
