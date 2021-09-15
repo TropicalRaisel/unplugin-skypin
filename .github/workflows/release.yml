@@ -22,7 +22,7 @@ jobs:
           node-version: '16.x'
           # cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm i
+      - run: npm install
       - run: npm test
       # Publish to npm (done locally)
       # - run: npm publish --access public
