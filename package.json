@@ -21,6 +21,10 @@
     "url": "git+https://github.com/TropicalRaisel/unplugin-skypin.git"
   },
   "license": "MIT",
+  "author": {
+    "name": "TropicalRaisel",
+    "url": "https://github.com/TropicalRaisel"
+  },
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -71,9 +75,6 @@
     "got": "^11.8.2",
     "unplugin": "^0.2.9"
   },
-  "peerDependencies": {
-    "unplugin": "^0.2.9"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.9.0",
     "@symfony/webpack-encore": "^1.6.1",
@@ -97,6 +98,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "snowpack": "^3.8.8",
+    "sort-package-json": "^1.51.0",
     "ts-jest": "^27.0.5",
     "tsup": "^5.0.0",
     "typescript": "^4.4.3",
@@ -104,5 +106,8 @@
     "vite": "^2.5.7",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
+  },
+  "peerDependencies": {
+    "unplugin": "^0.2.9"
   }
 }
