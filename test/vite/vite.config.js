@@ -1,4 +1,3 @@
-// import { resolve } from 'path'
 import skypin from 'unplugin-skypin/vite'
 import { defineConfig } from 'vite'
 
@@ -9,12 +8,12 @@ export default defineConfig({
       name: 'index',
       fileName: 'index.js',
     },
-    outDir: 'dist/vite',
+    outDir: 'dist/',
   },
   plugins: [
     skypin({
       packages: [
-        'hueman',
+        'canvas-confetti',
       ],
       /* other options */
     }),

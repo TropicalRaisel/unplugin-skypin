@@ -1,7 +1,6 @@
-
 export default {
   generate: {
-    dir: 'dist/nuxt',
+    dir: 'dist/',
   },
   modules: [['unplugin-skypin/nuxt', { /* options */ }]],
 }
