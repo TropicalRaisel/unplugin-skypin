@@ -14,8 +14,8 @@
     </a>
   </p>
   <hr>
-  <h5>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></h5>
-  <hr>
+  <h4>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a></h4>
+  <br>
   <p>
     <a href="https://www.npmjs.com/package/unplugin-skypin">
       <img alt="NPM Version" src="https://img.shields.io/npm/v/unplugin-skypin?logo=npm&label=npm&color=CB3837">
