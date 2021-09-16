@@ -16,7 +16,7 @@ on:
 
 jobs:
   package:
-    if: github.ref == 'refs/heads/master' # Strictly run only on the master branch.
+    # if: github.ref == 'refs/heads/master' # Strictly run only on the master branch.
     runs-on: ubuntu-20.04
 
     # Set the permissions granted to the GITHUB_TOKEN for the actions in this job.
