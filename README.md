@@ -17,14 +17,14 @@
   <p>Inspired by <a href="https://github.com/MarshallCB/rollup-plugin-skypin#usage">rollup-plugin-skypin</a>.</p>
   <hr>
   <p>
-    <a href="https://www.npmjs.com/package/unplugin-skypin">
-      <img alt="NPM Version" src="https://img.shields.io/npm/v/unplugin-skypin?logo=npm&label=npm&color=CB3837">
+    <a href="https://www.npmjs.com/package/@tropicalraisel/unplugin-skypin">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/@tropicalraisel/unplugin-skypin?logo=npm&label=npm&color=CB3837">
     </a>
-    <a href="https://david-dm.org/TropicalRaisel/unplugin-skypin">
-      <img alt="Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg">
+    <a href="https://david-dm.org/tropicalraisel/unplugin-skypin">
+      <img alt="Dependencies Status" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg">
     </a>
-    <a href="https://david-dm.org/TropicalRaisel/unplugin-skypin?type=dev">
-      <img alt="Dev Dependencies Status" src="https://status.david-dm.org/gh/TropicalRaisel/unplugin-skypin.svg?type=dev">
+    <a href="https://david-dm.org/tropicalraisel/unplugin-skypin?type=dev">
+      <img alt="Dev Dependencies Status" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg?type=dev">
     </a>
   </p>
 </div>

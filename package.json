@@ -1,29 +1,32 @@
 {
   "name": "@tropicalraisel/unplugin-skypin",
   "version": "3.5.1",
-  "description": "Skypin plugin support across all Unplugin platforms.",
+  "description": "Skypack support across all platforms supported by Unplugin!",
   "keywords": [
     "skypack",
-    "skypin",
+    "cdn",
     "unplugin",
     "vite",
     "nuxt",
+    "vue",
     "webpack",
     "rollup",
-    "transform"
+    "snowpack",
+    "esbuild",
+    "skypin"
   ],
-  "homepage": "https://github.com/TropicalRaisel/unplugin-skypin#readme",
+  "homepage": "https://github.com/tropicalraisel/unplugin-skypin#readme",
   "bugs": {
-    "url": "https://github.com/TropicalRaisel/unplugin-skypin/issues"
+    "url": "https://github.com/tropicalraisel/unplugin-skypin/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TropicalRaisel/unplugin-skypin.git"
+    "url": "git+https://github.com/tropicalraisel/unplugin-skypin.git"
   },
   "license": "MIT",
   "author": {
-    "name": "TropicalRaisel",
-    "url": "https://github.com/TropicalRaisel"
+    "name": "@tropicalraisel",
+    "url": "https://github.com/tropicalraisel"
   },
   "exports": {
     ".": {
