@@ -33,8 +33,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Setup
+        run: pnpm add esbuild -g
+
       - name: Install
-        run: pnpm i --frozen-lockfile # --ignore-scripts
+        run: pnpm i --frozen-lockfile --ignore-scripts
 
       - name: Test
         run: pnpm test
