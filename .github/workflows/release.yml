@@ -43,18 +43,18 @@ jobs:
       # Set the target repository and NPM authentication token manually instead of through actions/setup-node.
       # Publishes to NPM using the "ignore scripts" flag to skip all the life cycle scripts specified in the packge.json manifest.
       # Doing this through PNPM with the same flag causes ESBuild to crash.
-      # - name: Publish to NPM
-        # run: |
-          # pnpm config set registry https://registry.npmjs.org/
-          # pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          # npm publish --ignore-scripts
-        # env:
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to NPM
+        run: |
+          pnpm config set registry https://registry.npmjs.org/
+          pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # https://www.aaron-powell.com/posts/2020-11-06-deploy-to-github-packages-with-github-actions/
       #
       # Same as the NPM publishing, but this time targeting the GitHub packages repository.
-      # Could require a scope, but should default to "TropicalRaisel."
+      # Could require a scope, but should default to "tropicalraisel."
       - name: Publish to GitHub Packages
         run: |
           pnpm config set registry https://npm.pkg.github.com/
