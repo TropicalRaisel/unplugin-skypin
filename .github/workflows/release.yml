@@ -21,17 +21,21 @@ jobs:
           node-version: '16.x'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      - run: pnpm add -g @antfu/ni
-      - run: nci
-      - run: nr test --if-present
+      # - run: pnpm add -g @antfu/ni
+      # - run: nci
+      # - run: nr test --if-present
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm test
       # Publish to the Node Package Registry
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Create a GitHub release
-      - run: npx conventional-github-releaser -p angular
+      - name: Conventional Semantic Release
+        uses: ahmadnassri/action-semantic-release@v1.7.2
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Publish to GitHub Packages
       # - uses: actions/setup-node@v2
         # with:
