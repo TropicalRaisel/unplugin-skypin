@@ -5,6 +5,7 @@ on:
   push:
     tags:
       - 'v*'
+    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +13,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.14.7
@@ -30,12 +31,12 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # Create a GitHub release
-      - name: Conventional Semantic Release
-        uses: ahmadnassri/action-semantic-release@v1.7.2
+      - name: Create a GitHub Release
+        uses: elgohr/Github-Release-Action@master
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        # with:
+          # args: MyReleaseMessage
       # Publish to GitHub Packages
       # - uses: actions/setup-node@v2
         # with:
