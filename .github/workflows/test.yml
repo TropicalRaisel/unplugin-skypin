@@ -5,11 +5,19 @@ on:
     branches:
       # - main
       - master
+    paths:
+      - '*.ts'
+      - '*.js'
+      - '*.yml'
 
   pull_request:
     branches:
       # - main
       - master
+    paths:
+      - '*.ts'
+      - '*.js'
+      - '*.yml'
 
 jobs:
   build:
