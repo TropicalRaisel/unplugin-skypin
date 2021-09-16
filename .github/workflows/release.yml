@@ -59,6 +59,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  release:
+    runs-on: ubuntu-20.04
+
+    steps:
       - name: Publish GitHub Release
         uses: marvinpinto/action-automatic-releases@latest
         with:
