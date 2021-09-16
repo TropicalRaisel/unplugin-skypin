@@ -41,29 +41,21 @@ jobs:
           pnpm i --frozen-lockfile
           pnpm test
 
-  npm-publish:
-    needs: package
-    runs-on: ubuntu-20.04
-
-    steps:
       # Set the target repository and NPM authentication token manually instead of through actions/setup-node.
       # Next, use the "ignore scripts" flag when publishing to tell the npm CLI to skip all the life cycle scripts specified in the packge.json manifest.
       # Doing this through PNPM with the same flag causes ESBuild to crash.
-      - run: |
-          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+      - name: Publish to NPM
+        run: |
+          pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  github-publish:
-    needs: package
-    runs-on: ubuntu-20.04
-
-    steps:
       # Same as the NPM publishing, but this time targeting the GitHub packages repository.
       # Could require a scope, but should default to "TropicalRaisel."
-      - run: |
-          npm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
+      - name: Publish to GitHub Packages
+        run: |
+          pnpm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
