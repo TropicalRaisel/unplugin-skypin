@@ -6,18 +6,18 @@ on:
       # - main
       - master
     paths:
-      - '*.ts'
-      - '*.js'
-      - '*.yml'
+      - '**.ts'
+      - '**.js'
+      - '**.yml'
 
   pull_request:
     branches:
       # - main
       - master
     paths:
-      - '*.ts'
-      - '*.js'
-      - '*.yml'
+      - '**.ts'
+      - '**.js'
+      - '**.yml'
 
 jobs:
   build:
