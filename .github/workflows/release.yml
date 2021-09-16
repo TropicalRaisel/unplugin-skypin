@@ -55,11 +55,9 @@ jobs:
       #
       # Same as the NPM publishing, but this time targeting the GitHub packages repository.
       # Could require a scope, but should default to "TropicalRaisel."
-      # Sleeping to wait on NPM to publish, then GH should pickup the package.
       - name: Publish to GitHub Packages
         run: |
-          sleep 20s
-          pnpm config set registry https://npm.pkg.github.com/
+          pnpm config set registry https://npm.pkg.github.com/@TropicalRaisel
           pnpm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
         env:
