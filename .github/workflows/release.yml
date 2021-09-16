@@ -1,30 +1,69 @@
 # https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/
 # https://docs.github.com/en/actions/guides/publishing-nodejs-packages
+
 name: Release
+
 on:
-  release:
-    types: [created]
+
+  # Trigger if there's a tagged (e.g. tag v1.0.0) commit pushed:
   push:
     tags:
       - 'v*'
+
+  # Trigger when a release is created.
+  release:
+    types: [created]
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  package:
+    if: github.ref == 'refs/heads/master' # Strictly run only on the master branch.
+    runs-on: ubuntu-20.04
+
+    # Set the permissions granted to the GITHUB_TOKEN for the actions in this job.
     permissions:
       contents: read
       packages: write
+
     steps:
       - uses: actions/checkout@master
+
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.14.7
+
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version: 14
           cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
-      - run: pnpm i --frozen-lockfile
-      - run: pnpm test
-      - run: npm publish
+
+      # Building the package will take place during the test step.
+      - run: |
+          pnpm i --frozen-lockfile
+          pnpm test
+
+  npm-publish:
+    needs: package
+    runs-on: ubuntu-20.04
+
+    steps:
+      # Set the target repository and NPM authentication token manually instead of through actions/setup-node.
+      # Next, use the "ignore scripts" flag when publishing to tell the npm CLI to skip all the life cycle scripts specified in the packge.json manifest.
+      # Doing this through PNPM with the same flag causes ESBuild to crash.
+      - run: |
+          pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --ignore-scripts
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  github-publish:
+    needs: package
+    runs-on: ubuntu-20.04
+
+    steps:
+      # Same as the NPM publishing, but this time targeting the GitHub packages repository.
+      # Could require a scope, but should default to "TropicalRaisel."
+      - run: |
+          pnpm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
+          npm publish --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
