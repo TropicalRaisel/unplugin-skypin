@@ -1,3 +1,5 @@
+# https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/
+# https://docs.github.com/en/actions/guides/publishing-nodejs-packages
 name: Release
 on:
   release:
@@ -5,7 +7,6 @@ on:
   push:
     tags:
       - 'v*'
-    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,26 +23,8 @@ jobs:
           node-version: '16.x'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      # - run: pnpm add -g @antfu/ni
-      # - run: nci
-      # - run: nr test --if-present
       - run: pnpm i --frozen-lockfile
       - run: pnpm test
-      # Publish to the Node Package Registry
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # Create a GitHub release
-      - name: Conventional Semantic Release
-        uses: ahmadnassri/action-semantic-release@v1.7.2
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Publish to GitHub Packages
-      # - uses: actions/setup-node@v2
-        # with:
-          # node-version: '14.x'
-          # registry-url: 'https://npm.pkg.github.com'
-      # - run: npm publish
-        # env:
-          # NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
