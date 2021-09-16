@@ -31,12 +31,12 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Create a GitHub Release
-        uses: elgohr/Github-Release-Action@master
+      # Create a GitHub release
+      - name: Conventional Semantic Release
+        uses: ahmadnassri/action-semantic-release@v1.7.2
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        # with:
-          # args: MyReleaseMessage
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Publish to GitHub Packages
       # - uses: actions/setup-node@v2
         # with:
