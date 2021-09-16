@@ -15,8 +15,7 @@ on:
     types: [created]
 
 jobs:
-  package:
-    # if: github.ref == 'refs/heads/master' # Strictly run only on the master branch.
+  publish:
     runs-on: ubuntu-20.04
 
     # Set the permissions granted to the GITHUB_TOKEN for the actions in this job.
@@ -36,8 +35,8 @@ jobs:
           node-version: 14
           cache: 'pnpm'
 
-      # Building the package will take place during the test step.
-      - run: |
+      - name: Build & Test
+        run: |
           pnpm i --frozen-lockfile
           pnpm test
 
@@ -48,6 +47,7 @@ jobs:
       # Once this step is complete, the active profile will be "github."
       - name: Prepare NPMRC
         run: |
+          pnpm add -g npmrc
           npmrc -c npm
           pnpm config set registry https://registry.npmjs.org/
           pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
