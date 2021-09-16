@@ -8,11 +8,7 @@ on:
   # Trigger if there's a tagged (e.g. tag v1.0.0) commit pushed:
   push:
     tags:
-      - 'v*'
-
-  # Trigger when a release is created.
-  release:
-    types: [created]
+      - v*
 
 jobs:
   publish:
@@ -62,3 +58,11 @@ jobs:
           npm publish --ignore-scripts
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish GitHub Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          automatic_release_tag: latest
+          title: ${{ github.event.push.head.ref }}
