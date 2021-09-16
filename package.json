@@ -109,7 +109,5 @@
   },
   "peerDependencies": {
     "unplugin": "^0.2.9"
-  },
-  "hasInstallScript": true,
-  "lockfileVersion": 1
+  }
 }
