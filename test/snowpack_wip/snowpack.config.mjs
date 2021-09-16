@@ -1,4 +1,4 @@
-import skypin from 'unplugin-skypin/rollup'
+import skypin from '@tropicalraisel/unplugin-skypin/rollup'
 
 /** @type { import("snowpack").SnowpackUserConfig } */
 export default {

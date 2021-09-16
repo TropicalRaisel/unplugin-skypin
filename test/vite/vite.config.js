@@ -1,4 +1,4 @@
-import skypin from 'unplugin-skypin/vite'
+import skypin from '@tropicalraisel/unplugin-skypin/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({

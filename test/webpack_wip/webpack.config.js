@@ -54,7 +54,7 @@ Encore
     config.corejs = 3
   })
 
-  .addPlugin(require('unplugin-skypin/webpack').default)
+  .addPlugin(require('@tropicalraisel/unplugin-skypin/webpack').default)
 
 // enables Sass/SCSS support
 // .enableSassLoader()

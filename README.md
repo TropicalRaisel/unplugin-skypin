@@ -47,7 +47,7 @@
 
 ```ts
 // vite.config.{m}js
-import skypin from 'unplugin-skypin/vite'
+import skypin from '@tropicalraisel/unplugin-skypin/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -69,7 +69,7 @@ export default defineConfig({
 
 ```ts
 // rollup.config.{m}js
-import skypin from 'unplugin-skypin/rollup'
+import skypin from '@tropicalraisel/unplugin-skypin/rollup'
 
 export default {
   input: 'src/index.js',
@@ -99,7 +99,7 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require('unplugin-skypin/webpack').default({ /* options */ })
+    require('@tropicalraisel/unplugin-skypin/webpack').default({ /* options */ })
   ]
 }
 ```
@@ -113,7 +113,7 @@ module.exports = {
 // nuxt.config.{m}js
 export default {
   buildModules: [
-    ['unplugin-skypin/nuxt', { /* options */ }],
+    ['@tropicalraisel/unplugin-skypin/nuxt', { /* options */ }],
   ],
 }
 ```
@@ -130,7 +130,7 @@ export default {
 module.exports = {
   configureWebpack: {
     plugins: [
-      require('unplugin-skypin/webpack').default({ /* options */ }),
+      require('@tropicalraisel/unplugin-skypin/webpack').default({ /* options */ }),
     ],
   },
 }
