@@ -57,7 +57,7 @@ jobs:
       # Could require a scope, but should default to "TropicalRaisel."
       - name: Publish to GitHub Packages
         run: |
-          pnpm config set @TropicalRaisel:registry https://npm.pkg.github.com/@TropicalRaisel
+          pnpm config set @TropicalRaisel:registry https://npm.pkg.github.com
           pnpm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
         env:
