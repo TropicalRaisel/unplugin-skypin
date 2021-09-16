@@ -48,10 +48,10 @@ jobs:
       - name: Prepare NPMRC
         run: |
           pnpm add -g npmrc
-          npmrc -c npm
+          npmrc -c publish-npm
           pnpm config set registry https://registry.npmjs.org/
           pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          npmrc -c github
+          npmrc -c publish-github
           pnpm config set registry https://npm.pkg.github.com/@TropicalRaisel
           pnpm config set //npm.pkg.github.com/:_authToken ${GITHUB_TOKEN}
         env:
@@ -63,7 +63,7 @@ jobs:
       # Doing this through PNPM with the same flag causes ESBuild to crash.
       - name: Publish to NPM
         run: |
-          npmrc npm
+          npmrc publish-npm
           npm publish --ignore-scripts
         # env:
           # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -72,7 +72,7 @@ jobs:
       # Could require a scope, but should default to "TropicalRaisel."
       - name: Publish to GitHub Packages
         run: |
-          npmrc github
+          npmrc publish-github
           npm publish --ignore-scripts
         # env:
           # NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
