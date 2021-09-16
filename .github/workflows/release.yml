@@ -65,4 +65,3 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
           automatic_release_tag: latest
-          title: ${{ github.event.push.head.ref }}
