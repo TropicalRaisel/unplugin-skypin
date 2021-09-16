@@ -40,39 +40,25 @@ jobs:
           pnpm i --frozen-lockfile
           pnpm test
 
-      # https://docs.npmjs.com/configuring-your-registry-settings-as-an-npm-enterprise-user#create-an-npm-enterprise-profile
-      # https://www.aaron-powell.com/posts/2020-11-06-deploy-to-github-packages-with-github-actions/
-      #
-      # Create two npmrc profiles that are ready to publish!
-      # Once this step is complete, the active profile will be "github."
-      - name: Prepare NPMRC
-        run: |
-          pnpm add -g npmrc
-          npmrc -c publish-npm
-          pnpm config set registry https://registry.npmjs.org/
-          pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          npmrc -c publish-github
-          pnpm config set registry https://npm.pkg.github.com/@TropicalRaisel
-          pnpm config set //npm.pkg.github.com/:_authToken ${GITHUB_TOKEN}
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Set the target repository and NPM authentication token manually instead of through actions/setup-node.
       # Publishes to NPM using the "ignore scripts" flag to skip all the life cycle scripts specified in the packge.json manifest.
       # Doing this through PNPM with the same flag causes ESBuild to crash.
       - name: Publish to NPM
         run: |
-          npmrc publish-npm
+          pnpm config set registry https://registry.npmjs.org/
+          pnpm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
-        # env:
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      # https://www.aaron-powell.com/posts/2020-11-06-deploy-to-github-packages-with-github-actions/
+      #
       # Same as the NPM publishing, but this time targeting the GitHub packages repository.
       # Could require a scope, but should default to "TropicalRaisel."
       - name: Publish to GitHub Packages
         run: |
-          npmrc publish-github
+          pnpm config set registry https://npm.pkg.github.com/@TropicalRaisel
+          pnpm config set //npm.pkg.github.com/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
-        # env:
-          # NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
