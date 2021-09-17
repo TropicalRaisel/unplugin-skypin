@@ -37,7 +37,6 @@
 
 ## Notes
 
-- Nuxt is supposed to work but has not yet been tested.
 - Webpack is not currently supported.
 
 ## Usage
@@ -90,6 +89,25 @@ export default {
 
 <br></details>
 
+<details>
+<summary>Nuxt</summary><br>
+
+```ts
+// nuxt.config.{m}js
+export default {
+  buildModules: [
+    ['@tropicalraisel/unplugin-skypin/nuxt', { /* options */ }],
+  ],
+}
+```
+
+Reference the test suite here: https://github.com/tropicalraisel/unplugin-skypin/tree/master/test/nuxt
+
+> This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
+
+<br></details>
+
+### WIP
 
 <details>
 <summary>Webpack</summary><br>
@@ -103,22 +121,6 @@ module.exports = {
   ]
 }
 ```
-
-<br></details>
-
-<details>
-<summary>Nuxt</summary><br>
-
-```ts
-// nuxt.config.{m}js
-export default {
-  buildModules: [
-    ['@tropicalraisel/unplugin-skypin/nuxt', { /* options */ }],
-  ],
-}
-```
-
-> This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
 
 <br></details>
 
