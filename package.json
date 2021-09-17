@@ -1,6 +1,6 @@
 {
   "name": "@tropicalraisel/unplugin-skypin",
-  "version": "3.5.7",
+  "version": "4.0.0",
   "description": "Skypack support across all platforms supported by Unplugin!",
   "keywords": [
     "skypack",
