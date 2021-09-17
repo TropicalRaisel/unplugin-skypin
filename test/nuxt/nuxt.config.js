@@ -1,10 +1,12 @@
+import { resolve } from 'path'
+
 export default {
-  generate: {
-    dir: 'dist/',
-  },
+  rootDir: resolve(__dirname, '.'),
+  buildDir: resolve(__dirname, '.nuxt'),
+  srcDir: __dirname,
   buildModules: [
     '@nuxt/typescript-build',
     'nuxt-vite',
-    '../../../src/nuxt.ts',
+    '~~../../src/nuxt.ts',
   ],
 }

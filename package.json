@@ -8,6 +8,7 @@
     "unplugin",
     "vite",
     "nuxt",
+    "nuxt-module",
     "vue",
     "webpack",
     "rollup",

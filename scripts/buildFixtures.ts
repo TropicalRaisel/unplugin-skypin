@@ -19,19 +19,19 @@ async function run() {
 
     switch (name) {
       case 'vite':
-        console.log(c.hex('#646CFF').inverse.bold`\n  Vite  `, name, '\n')
+        console.log(c.hex('#646CFF').inverse.bold`\n  Vite  `, 'building\n')
         execSync('npx vite build', { cwd: path, stdio: 'inherit' })
         break
       case 'rollup':
-        console.log(c.hex('#EC4A3F').inverse.bold`\n  Rollup  `, name, '\n')
+        console.log(c.hex('#EC4A3F').inverse.bold`\n  Rollup  `, 'building\n')
         execSync('npx rollup -c', { cwd: path, stdio: 'inherit' })
         break
       case 'webpack':
-        console.log(c.hex('#8DD6F9').inverse.bold`\n  Webpack  `, name, '\n')
+        console.log(c.hex('#8DD6F9').inverse.bold`\n  Webpack  `, 'building\n')
         execSync('npx webpack', { cwd: path, stdio: 'inherit' })
         break
       case 'nuxt':
-        console.log(c.hex('#00C58E').inverse.bold`\n  Nuxt  `, name, '\n')
+        console.log(c.hex('#00C58E').inverse.bold`\n  Nuxt  `, 'building\n')
         execSync('npx nuxt build', { cwd: path, stdio: 'inherit' })
         break
       case 'snowpack':
