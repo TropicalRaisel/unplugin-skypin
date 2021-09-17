@@ -6,7 +6,7 @@ import { log } from './core/log'
 
 export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
-function hasValidVersion(id: string): boolean {
+export function hasValidVersion(id: string): boolean {
   // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
   if (!id.includes('@', 1))
     return true // no version is valid
@@ -24,7 +24,7 @@ function hasValidVersion(id: string): boolean {
   return (semver && semver.length > 0) || false
 }
 
-async function skypack(id: string, min = true): Promise<string> {
+export async function getSkypackUrl(id: string, min = true): Promise<string> {
   // If the dependency is remote or relative, or has an invalid version, ignore it.
   // The '@' character is checked at the start to determine if the package is scoped.
   if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !hasValidVersion(id))
@@ -49,7 +49,7 @@ async function skypack(id: string, min = true): Promise<string> {
           return SKYPACK_URL.concat(min ? pin.replace('mode=imports', 'mode=imports,min') : pin)
         case 'NEW':
           // https://docs.skypack.dev/skypack-cdn/api-reference/private-urls#new-new-package-urls
-          return await skypack(id, min)
+          return await getSkypackUrl(id, min)
         default:
           throw new Error(`Unknown Skypack status; please report this! <${status}>`)
       }
@@ -77,7 +77,7 @@ export default createUnplugin<Options>((options, meta) => {
         const sub = settings.replace(id)
 
         if (sub)
-          urls.set(typeof sub === 'string' ? sub : id, await skypack(id, settings.minify))
+          urls.set(typeof sub === 'string' ? sub : id, await getSkypackUrl(id, settings.minify))
       }
     },
     resolveId(id: string) {
