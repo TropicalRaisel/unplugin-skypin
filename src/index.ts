@@ -7,11 +7,14 @@ import { log } from './core/log'
 export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
 export function hasValidVersion(id: string): boolean {
+  if (!id)
+    return false // no empty strings; null or undefined should throw compiler errors
+
   // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
   if (!id.includes('@', 1))
     return true // no version is valid
 
-  let version = id.split('@')[1]
+  let version = id.startsWith('@') ? id.slice(1).split('@')[1] : id.split('@')[1]
 
   if (version.match(/^[a-z]+$/))
     return true // assume this is a dist-tag: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag | https://docs.npmjs.com/adding-dist-tags-to-packages
