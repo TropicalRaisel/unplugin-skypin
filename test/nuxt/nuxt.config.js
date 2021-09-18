@@ -9,4 +9,5 @@ export default {
     'nuxt-vite',
     '~~../../src/nuxt.ts',
   ],
+  telemetry: false,
 }
