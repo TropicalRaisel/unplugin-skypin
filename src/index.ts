@@ -25,7 +25,7 @@ export function isValidVersion(package_version: string): boolean {
 }
 
 // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
-export function hasValidVersion(package_id: string): boolean {
+export function isValidPackage(package_id: string): boolean {
   const id = package_id
 
   if (!id || id.length <= 0)
@@ -57,7 +57,7 @@ export async function getSkypackUrl(package_id: string, minified = true): Promis
 
   // If the dependency is remote or relative, or has an invalid version, ignore it.
   // The '@' character is checked at the start to determine if the package is scoped.
-  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !hasValidVersion(id))
+  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !isValidPackage(id))
     return id
 
   try {

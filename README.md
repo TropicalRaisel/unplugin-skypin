@@ -35,9 +35,23 @@
 - `minify` *(Type: boolean, Default: `true`)*: Whether to use Skypack's minified asset.
 - `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
 
+### Import Syntax
+
+Strictly similar to [what Skypack allows](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching). Note that the import syntax in both the `packages` and file listings need to be identical.
+
+### *Can be used as a library!*
+
+```javascript
+import { isValidVersion, isValidPackage, getSkypackUrl } from 'unplugin-skypin'
+```
+Check out the functions over [on GitHub](https://github.com/tropicalraisel/unplugin-skypin/blob/master/src/index.ts)!
+
 ## Notes
 
 - Webpack is not currently supported.
+- Having `semver` and other CommonJS dependencies caused `snowpack` to crash.
+However, since `snowpack` is no longer [being maintained](https://dev.to/fredkschott/5-more-things-i-learned-building-snowpack-to-20-000-stars-5dc9), any planned compatibility is being dropped.
+CJS dependencies then become okay.
 
 ## Usage
 
