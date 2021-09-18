@@ -34,10 +34,6 @@ async function run() {
         console.log(c.hex('#00C58E').inverse.bold`\n  Nuxt  `, 'building\n')
         execSync('npx nuxt build', { cwd: path, stdio: 'inherit' })
         break
-      case 'snowpack':
-        console.log(c.hex('#2E5E82').inverse.bold`\n  Snowpack  `, name, '\n')
-        execSync('npx snowpack build', { cwd: path, stdio: 'inherit' })
-        break
       case 'vue':
         break
       default:

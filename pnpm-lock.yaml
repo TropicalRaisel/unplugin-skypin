@@ -11,6 +11,7 @@ importers:
       '@types/fs-extra': ^9.0.12
       '@types/jest': ^27.0.1
       '@types/node': ^16.9.2
+      '@types/semver': ^7.3.8
       '@types/webpack': ^5.28.0
       beautiful-dom: ^1.0.9
       bumpp: ^7.1.1
@@ -30,6 +31,7 @@ importers:
       postcss: ^8.3.6
       rimraf: ^3.0.2
       rollup: ^2.56.3
+      semver: ^7.3.5
       sort-package-json: ^1.51.0
       ts-jest: ^27.0.5
       tsup: ^5.1.0
@@ -41,6 +43,7 @@ importers:
       webpack: ^4.46.0
     dependencies:
       got: 11.8.2
+      semver: 7.3.5
       unplugin: 0.2.11_12cb1ae76fe2803bb7e3319cccb2d341
     devDependencies:
       '@antfu/eslint-config': 0.9.0_eslint@7.32.0+typescript@4.4.3
@@ -50,6 +53,7 @@ importers:
       '@types/fs-extra': 9.0.12
       '@types/jest': 27.0.1
       '@types/node': 16.9.2
+      '@types/semver': 7.3.8
       '@types/webpack': 5.28.0
       beautiful-dom: 1.0.9
       bumpp: 7.1.1
@@ -2826,6 +2830,10 @@ packages:
     resolution: {integrity: sha512-iZUcRrGuz/Tbg3loODpW7vrQJkUtpY2fFSf4ELqqkApcS2TkZ1msk7ie8iZPB86lDOP8QOTTmuvWjc5S0R9OjQ==}
     dependencies:
       '@types/node': 16.9.2
+    dev: true
+
+  /@types/semver/7.3.8:
+    resolution: {integrity: sha512-D/2EJvAlCEtYFEYmmlGwbGXuK886HzyCc3nZX/tkFTQdEU8jZDAgiv08P162yB17y4ZXZoq7yFAnW4GDBb9Now==}
     dev: true
 
   /@types/serve-static/1.13.9:
@@ -9929,7 +9937,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-    dev: true
 
   /magic-string/0.25.7:
     resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
@@ -13355,7 +13362,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /send/0.17.1:
     resolution: {integrity: sha512-BsVKsiGcQMFwT8UxypobUKyv7irCNRHk1T0G680vk88yf6LBByGcZJOTJCrTP2xVN6yI+XjPJcNuE3V4fT9sAg==}
@@ -15783,7 +15789,6 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: true
 
   /yaml-eslint-parser/0.4.1:
     resolution: {integrity: sha512-GoJ/p1EW8O2tbTbuhfxjo1XhfUFU3uX3kwvfEQoOaZjO2Lubx8POjlsSqB+18b3SxkujAdQYT9r9nURaUWNYWQ==}

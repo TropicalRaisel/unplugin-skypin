@@ -1,33 +1,60 @@
 import { createUnplugin } from 'unplugin'
 import got from 'got'
+import { valid } from 'semver'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
 import { log } from './core/log'
 
 export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
-export function hasValidVersion(id: string): boolean {
-  if (!id)
-    return false // no empty strings; null or undefined should throw compiler errors
+export function isValidVersion(package_version: string): boolean {
+  let version = package_version
 
-  // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
-  if (!id.includes('@', 1))
-    return true // no version is valid
+  if (!version || version.length <= 0)
+    return false // empty versions are invalid
 
-  let version = id.startsWith('@') ? id.slice(1).split('@')[1] : id.split('@')[1]
+  if (version.match(/^latest|next$/))
+    return true // dist tags are valid
 
-  if (version.match(/^[a-z]+$/))
-    return true // assume this is a dist-tag: https://docs.npmjs.com/cli/v7/commands/npm-dist-tag | https://docs.npmjs.com/adding-dist-tags-to-packages
-
-  if (version[0].match(/^(\~|\^)/))
+  if (version[0].match(/^\~|\^$/))
     version = version.slice(1)
 
   // semver 2.0.0: https://regex101.com/r/vkijKf/1/
-  const semver = version.match(/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/)
+  const semver = valid(version)
   return (semver && semver.length > 0) || false
 }
 
-export async function getSkypackUrl(id: string, min = true): Promise<string> {
+// https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
+export function hasValidVersion(package_id: string): boolean {
+  const id = package_id
+
+  if (!id || id.length <= 0)
+    return false // no empty strings; null or undefined should throw compiler errors
+
+  switch ((id.match(/\@/g) || []).length) {
+    case 0: // no version
+      return true
+    case 1: { // scoped package or package with version
+      const slices = id.split('@')
+
+      if (id.startsWith('@'))
+        return slices[1].length > 0 && !isValidVersion(slices[1])
+
+      return slices[0].length > 0 && isValidVersion(slices[1])
+    }
+    case 2: { // scoped package with version
+      const slices = id.slice(1).split('@')
+      return slices[0].length > 0 && isValidVersion(slices[1])
+    }
+    default:
+      return false
+  }
+}
+
+export async function getSkypackUrl(package_id: string, minified = true): Promise<string> {
+  const id = package_id
+  const min = minified
+
   // If the dependency is remote or relative, or has an invalid version, ignore it.
   // The '@' character is checked at the start to determine if the package is scoped.
   if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !hasValidVersion(id))
