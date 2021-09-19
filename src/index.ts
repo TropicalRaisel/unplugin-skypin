@@ -103,11 +103,13 @@ export default createUnplugin<Options>((options, meta) => {
     name,
     enforce: 'pre',
     async buildStart() {
-      for (const id of settings.packages) {
-        const sub = settings.replace(id)
+      if (urls.size === 0) {
+        for (const id of settings.packages) {
+          const sub = settings.replace(id)
 
-        if (sub)
-          urls.set(typeof sub === 'string' ? sub : id, await getSkypackUrl(id, settings.minify))
+          if (sub)
+            urls.set(typeof sub === 'string' ? sub : id, await getSkypackUrl(id, settings.minify))
+        }
       }
     },
     resolveId(id: string) {
