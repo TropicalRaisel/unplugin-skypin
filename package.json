@@ -72,8 +72,8 @@
     "prepublishOnly": "pnpm build",
     "release": "bumpp --commit --push --tag",
     "start": "esno src/index.ts",
-    "test": "pnpm lint && pnpm test:build && jest",
-    "test:build": "pnpm build && jiti scripts/buildFixtures.ts"
+    "test": "pnpm lint && pnpm build && jest",
+    "play": "jiti scripts/buildFixtures.ts"
   },
   "dependencies": {
     "got": "^11.8.2",

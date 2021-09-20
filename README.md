@@ -115,7 +115,7 @@ export default {
 }
 ```
 
-Reference the test suite here: https://github.com/tropicalraisel/unplugin-skypin/tree/master/test/nuxt
+Reference the test suite here: https://github.com/tropicalraisel/unplugin-skypin/tree/master/playground/nuxt
 
 > This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
 

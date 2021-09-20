@@ -5,7 +5,7 @@ import fs from 'fs-extra'
 import c from 'chalk'
 
 async function run() {
-  const dir = resolve(__dirname, '../test/')
+  const dir = resolve(__dirname, '../playground/')
   let fixtures = await fs.readdir(dir)
 
   if (process.argv[2])
