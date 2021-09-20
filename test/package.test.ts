@@ -1,4 +1,4 @@
-import { isValidPackage } from '../../../src'
+import { isValidPackage } from '../src'
 
 describe('valid versions are handled correctly', () => {
   it('only a letter', () => {

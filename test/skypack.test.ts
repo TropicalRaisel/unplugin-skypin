@@ -1,4 +1,4 @@
-import { getSkypackUrl } from '../../../src'
+import { getSkypackUrl } from '../src'
 
 describe('skypack urls are properly fetched', () => {
   it('gets latest pinned url', async() => {

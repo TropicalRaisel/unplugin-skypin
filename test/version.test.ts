@@ -1,4 +1,4 @@
-import { isValidVersion } from '../../../src'
+import { isValidVersion } from '../src'
 
 // all version tests from https://regex101.com/r/vkijKf/1/
 
