@@ -12,7 +12,6 @@
     "vue",
     "webpack",
     "rollup",
-    "snowpack",
     "esbuild",
     "skypin"
   ],

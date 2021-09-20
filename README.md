@@ -42,7 +42,7 @@ Strictly similar to [what Skypack allows](https://docs.skypack.dev/skypack-cdn/a
 ### *Can be used as a library!*
 
 ```javascript
-import { isValidVersion, isValidPackage, getSkypackUrl } from 'unplugin-skypin'
+import { SKYPACK_URL, isValidVersion, isValidPackage, getSkypackUrl } from 'unplugin-skypin'
 ```
 Check out the functions over [on GitHub](https://github.com/tropicalraisel/unplugin-skypin/blob/master/src/index.ts)!
 
