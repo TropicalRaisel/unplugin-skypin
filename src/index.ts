@@ -19,7 +19,6 @@ export function isValidVersion(package_version: string): boolean {
   if (version[0].match(/^\~|\^$/))
     version = version.slice(1)
 
-  // semver 2.0.0: https://regex101.com/r/vkijKf/1/
   const semver = valid(version)
   return (semver && semver.length > 0) || false
 }
@@ -28,24 +27,19 @@ export function isValidVersion(package_version: string): boolean {
 export function isValidPackage(package_id: string): boolean {
   const id = package_id
 
+  // no empty strings (null or undefined should throw compiler errors)
   if (!id || id.length <= 0)
-    return false // no empty strings; null or undefined should throw compiler errors
+    return false
 
-  switch ((id.match(/\@/g) || []).length) {
-    case 0: // no version
-      return true
-    case 1: { // scoped package or package with version
-      const slices = id.split('@')
+  const slices = id.split('@')
 
-      if (id.startsWith('@'))
-        return slices[1].length > 0 && !isValidVersion(slices[1])
-
-      return slices[0].length > 0 && isValidVersion(slices[1])
-    }
-    case 2: { // scoped package with version
-      const slices = id.slice(1).split('@')
-      return slices[0].length > 0 && isValidVersion(slices[1])
-    }
+  switch (slices.length) {
+    case 1: // regular package
+      return !id.includes('.') && !id.startsWith('/') && (id.match(/\//g) || []).length <= 1
+    case 2: // package with version or scoped package
+      return slices[0].length > 0 ? isValidPackage(slices[0]) && isValidVersion(slices[1]) : isValidPackage(slices[1])
+    case 3: // scoped package with version
+      return isValidPackage(slices[1]) && isValidVersion(slices[2])
     default:
       return false
   }
@@ -55,9 +49,7 @@ export async function getSkypackUrl(package_id: string, minified = true): Promis
   const id = package_id
   const min = minified
 
-  // If the dependency is remote or relative, or has an invalid version, ignore it.
-  // The '@' character is checked at the start to determine if the package is scoped.
-  if ((!id.startsWith('@') && id.includes('/')) || id.includes('.') || !isValidPackage(id))
+  if (!isValidPackage(id))
     return id
 
   try {

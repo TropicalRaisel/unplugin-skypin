@@ -66,4 +66,32 @@ describe('invalid versions are handled correctly', () => {
   it('version as alphanumeric string', () => {
     expect(isValidPackage('canvas-confetti@1latest')).toBe(false)
   })
+
+  it('excess periods', () => {
+    expect(isValidPackage('just.plain.wrong')).toBe(false)
+  })
+
+  it('relative path', () => {
+    expect(isValidPackage('./app.js')).toBe(false)
+  })
+
+  it('esm relative path', () => {
+    expect(isValidPackage('/app.js')).toBe(false)
+  })
+
+  it('esm relative path w/out file extension', () => {
+    expect(isValidPackage('/app')).toBe(false)
+  })
+
+  it('web url', () => {
+    expect(isValidPackage('https://example.com')).toBe(false)
+  })
+
+  it('invalid scoped no version', () => {
+    expect(isValidPackage('@skypack/package-check/')).toBe(false)
+  })
+
+  it('invalid scoped valid version', () => {
+    expect(isValidPackage('@skypack/package-check/@0.2.2')).toBe(false)
+  })
 })
