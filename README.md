@@ -31,9 +31,11 @@
 
 ## Options
 
-- `packages` *(Type: string[], Default: `[]`)*: Declare the package imports that should be changed here. This is done manually opposed to automatically because Unplugin performs some low-level operations that can involve accessing dependencies that were never intended to be. Packages are able to prefetched through this method too, so there are extra performance benefits.
-- `minify` *(Type: boolean, Default: `true`)*: Whether to use Skypack's minified asset.
-- `replace` *(Type: function(id: string) => boolean|string, Default: `() => true`)*: Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution.
+| Option | Type | Default Value | Description |
+|:---:|---|---|---|
+| packages | `string[]` | `[]` | Declare the package imports that should be changed here. This is done manually opposed to automatically because Unplugin performs some low-level operations that can involve accessing dependencies that were never intended to be. Packages are able to prefetched through this method too, so there are extra performance benefits. |
+| minify | `boolean` | `true` | Whether to use Skypack's minified asset. |
+| replace | `(id: string) => boolean\|string` | `() => true` | Uses a returned string as the package **id**. Returning a boolean value simply toggles Skypack URL substitution. |
 
 ### Import Syntax
 
