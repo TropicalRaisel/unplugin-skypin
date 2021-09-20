@@ -3,6 +3,7 @@
 .github/
 .scripts/
 test/
+playground/
 .editorconfig
 .eslintignore
 .eslintrc
