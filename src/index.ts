@@ -35,11 +35,11 @@ export function isValidPackage(package_id: string): boolean {
 
   switch (slices.length) {
     case 1: // regular package
-      return !id.includes('.') && !id.startsWith('/') && (id.match(/\//g) || []).length <= 1
+      return !id.includes('.') && (id.match(/\//g) || []).length === 0
     case 2: // package with version or scoped package
-      return slices[0].length > 0 ? isValidPackage(slices[0]) && isValidVersion(slices[1]) : isValidPackage(slices[1])
+      return slices[0].length === 0 ? (id.match(/\//g) || []).length === 1 : isValidPackage(slices[0]) && isValidVersion(slices[1])
     case 3: // scoped package with version
-      return isValidPackage(slices[1]) && isValidVersion(slices[2])
+      return isValidPackage(`@${slices[1]}`) && isValidVersion(slices[2])
     default:
       return false
   }

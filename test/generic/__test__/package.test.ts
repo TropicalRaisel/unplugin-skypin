@@ -94,4 +94,12 @@ describe('invalid versions are handled correctly', () => {
   it('invalid scoped valid version', () => {
     expect(isValidPackage('@skypack/package-check/@0.2.2')).toBe(false)
   })
+
+  it('unscoped', () => {
+    expect(isValidPackage('skypack/package-check')).toBe(false)
+  })
+
+  it('unscoped with version', () => {
+    expect(isValidPackage('skypack/package-check@0.2.2')).toBe(false)
+  })
 })
