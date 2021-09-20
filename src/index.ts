@@ -11,10 +11,11 @@ export function isValidVersion(package_version: string): boolean {
   let version = package_version
 
   if (!version || version.length <= 0)
-    return false // empty versions are invalid
+    return false
 
+  // dist tags are valid
   if (version.match(/^latest|next$/))
-    return true // dist tags are valid
+    return true
 
   if (version[0].match(/^\~|\^$/))
     version = version.slice(1)
@@ -37,7 +38,7 @@ export function isValidPackage(package_id: string): boolean {
     case 1: // regular package
       return !id.includes('.') && !id.includes('/')
     case 2: // package with version or scoped package
-      return slices[0].length === 0 ? (id.match(/\//g) || []).length === 1 : isValidPackage(slices[0]) && isValidVersion(slices[1])
+      return slices[0].length === 0 ? (slices[1].match(/\//g) || []).length === 1 : isValidPackage(slices[0]) && isValidVersion(slices[1])
     case 3: // scoped package with version
       return isValidPackage(`@${slices[1]}`) && isValidVersion(slices[2])
     default:
