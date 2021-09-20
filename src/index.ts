@@ -35,7 +35,7 @@ export function isValidPackage(package_id: string): boolean {
 
   switch (slices.length) {
     case 1: // regular package
-      return !id.includes('.') && (id.match(/\//g) || []).length === 0
+      return !id.includes('.') && !id.includes('/')
     case 2: // package with version or scoped package
       return slices[0].length === 0 ? (id.match(/\//g) || []).length === 1 : isValidPackage(slices[0]) && isValidVersion(slices[1])
     case 3: // scoped package with version
