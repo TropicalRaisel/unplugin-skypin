@@ -50,8 +50,10 @@ export async function getSkypackUrl(package_id: string, minified = true): Promis
   const id = package_id
   const min = minified
 
-  if (!isValidPackage(id))
+  if (!isValidPackage(id)) {
+    log.warn(`The following package is invalid: "${id}"`)
     return id
+  }
 
   try {
     const response = await got(id, {
