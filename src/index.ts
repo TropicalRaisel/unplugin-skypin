@@ -24,6 +24,17 @@ export function isValidVersion(package_version: string): boolean {
   return (semver && semver.length > 0) || false
 }
 
+function checkScopedPackage(scoped_package_id: string): boolean {
+  const id = scoped_package_id
+
+  for (const slice of id.split('/')) {
+    if (!isValidPackage(slice))
+      return false
+  }
+
+  return true
+}
+
 // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
 export function isValidPackage(package_id: string): boolean {
   const id = package_id
@@ -37,8 +48,8 @@ export function isValidPackage(package_id: string): boolean {
   switch (slices.length) {
     case 1: // regular package
       return !id.includes('.') && !id.includes('/')
-    case 2: // package with version or scoped package
-      return slices[0].length === 0 ? (slices[1].match(/\//g) || []).length === 1 : isValidPackage(slices[0]) && isValidVersion(slices[1])
+    case 2: // scoped package or package with version
+      return slices[0].length === 0 ? checkScopedPackage(slices[1]) : isValidPackage(slices[0]) && isValidVersion(slices[1])
     case 3: // scoped package with version
       return isValidPackage(`@${slices[1]}`) && isValidVersion(slices[2])
     default:
