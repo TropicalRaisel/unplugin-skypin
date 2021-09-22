@@ -1,6 +1,6 @@
 import { createUnplugin } from 'unplugin'
 import got from 'got'
-import { valid } from 'semver'
+import valid from '@tropicalraisel/semver-regexp'
 import { Options } from './types'
 import { resolveOptions } from './core/options'
 import { log } from './core/log'
@@ -8,20 +8,13 @@ import { log } from './core/log'
 export const SKYPACK_URL = 'https://cdn.skypack.dev'
 
 export function isValidVersion(package_version: string): boolean {
-  let version = package_version
-
-  if (!version || version.length <= 0)
-    return false
+  const version = package_version
 
   // dist tags are valid
   if (version.match(/^latest|next$/))
     return true
 
-  if (version[0].match(/^\~|\^$/))
-    version = version.slice(1)
-
-  const semver = valid(version)
-  return (semver && semver.length > 0) || false
+  return valid(version)
 }
 
 function checkScopedPackage(scoped_package_id: string): boolean {

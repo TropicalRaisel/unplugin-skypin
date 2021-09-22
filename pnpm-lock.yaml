@@ -8,6 +8,7 @@ importers:
       '@nuxt/types': ^2.15.8
       '@nuxt/typescript-build': ^2.1.0
       '@symfony/webpack-encore': ^1.6.1
+      '@tropicalraisel/semver-regexp': ^1.1.0
       '@types/fs-extra': ^9.0.12
       '@types/jest': ^27.0.1
       '@types/node': ^16.9.2
@@ -50,6 +51,7 @@ importers:
       '@nuxt/types': 2.15.8_webpack@4.46.0
       '@nuxt/typescript-build': 2.1.0_87747048b094093c0199d3cb3fe1f9d5
       '@symfony/webpack-encore': 1.6.1
+      '@tropicalraisel/semver-regexp': 1.1.0
       '@types/fs-extra': 9.0.12
       '@types/jest': 27.0.1
       '@types/node': 16.9.2
@@ -2502,6 +2504,10 @@ packages:
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /@tropicalraisel/semver-regexp/1.1.0:
+    resolution: {integrity: sha512-WJwWzfejl3hN18RLfI8UEshiUjdx99+sKa+u8BQxWZXlTKrAvzg18c7sr+GmNIuhSAqRvEsfOl2VKBK5L1A3eA==}
     dev: true
 
   /@trysound/sax/0.2.0:
