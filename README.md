@@ -51,9 +51,6 @@ Check out the functions over [on GitHub](https://github.com/tropicalraisel/unplu
 ## Notes
 
 - Webpack is not currently supported.
-- Having `semver` and other CommonJS dependencies caused `snowpack` to crash.
-However, since `snowpack` is no longer [being maintained](https://dev.to/fredkschott/5-more-things-i-learned-building-snowpack-to-20-000-stars-5dc9), any planned compatibility is being dropped.
-CJS dependencies then become okay.
 
 ## Usage
 
