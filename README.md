@@ -7,8 +7,10 @@
       <img alt="Vite Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/vite.svg" width="16" height="16">&nbsp;Vite
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://rollupjs.org/guide/en/#overview">
       <img alt="Rollup Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/rollup.svg" width="16" height="16">&nbsp;Rollup
-    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://nuxtjs.org/">
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://nuxtjs.org/docs/get-started/installation">
       <img alt="Nuxt Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/nuxt.svg" width="16" height="16">&nbsp;Nuxt
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://vuejs.org/v2/guide/#What-is-Vue-js">
+      <img alt="Vue Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/vue.svg" width="16" height="16">&nbsp;<strike>Vue</strike>
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://webpack.js.org/concepts/">
       <img alt="Webpack Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/webpack.svg" width="16" height="16">&nbsp;<strike>Webpack 4-5</strike>
     </a>
@@ -21,7 +23,7 @@
       <img alt="npm" src="https://img.shields.io/npm/v/@tropicalraisel/unplugin-skypin?style=flat&logo=npm&label=npm&color=CB3837">
     </a>
     <a href="https://www.npmjs.com/package/@tropicalraisel/unplugin-skypin">
-      <img alt="npms.io" src="https://img.shields.io/npms-io/quality-score/@tropicalraisel/unplugin-skypin">
+      <img alt="npms.io" src="https://img.shields.io/npms-io/quality-score/@tropicalraisel/unplugin-skypin?style=flat">
     </a>
     <a href="https://david-dm.org/tropicalraisel/unplugin-skypin">
       <img alt="daviddm" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg">
