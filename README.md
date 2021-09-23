@@ -18,13 +18,16 @@
   <hr>
   <p>
     <a href="https://www.npmjs.com/package/@tropicalraisel/unplugin-skypin">
-      <img alt="NPM Version" src="https://img.shields.io/npm/v/@tropicalraisel/unplugin-skypin?logo=npm&label=npm&color=CB3837">
+      <img alt="npm" src="https://img.shields.io/npm/v/@tropicalraisel/unplugin-skypin?style=flat&logo=npm&label=npm&color=CB3837">
+    </a>
+    <a href="https://www.npmjs.com/package/@tropicalraisel/unplugin-skypin">
+      <img alt="npms.io" src="https://img.shields.io/npms-io/quality-score/@tropicalraisel/unplugin-skypin">
     </a>
     <a href="https://david-dm.org/tropicalraisel/unplugin-skypin">
-      <img alt="Dependencies Status" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg">
+      <img alt="daviddm" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg">
     </a>
     <a href="https://david-dm.org/tropicalraisel/unplugin-skypin?type=dev">
-      <img alt="Dev Dependencies Status" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg?type=dev">
+      <img alt="daviddm-dev" src="https://status.david-dm.org/gh/tropicalraisel/unplugin-skypin.svg?type=dev">
     </a>
   </p>
 </div>
