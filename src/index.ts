@@ -18,14 +18,9 @@ export function isValidVersion(package_version: string): boolean {
 }
 
 function checkScopedPackage(scoped_package_id: string): boolean {
-  const id = scoped_package_id
+  const slices = scoped_package_id.split('/')
 
-  for (const slice of id.split('/')) {
-    if (!isValidPackage(slice))
-      return false
-  }
-
-  return true
+  return slices.length === 2 && isValidPackage(slices[0]) && isValidPackage(slices[1])
 }
 
 // https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls#api-package-matching
