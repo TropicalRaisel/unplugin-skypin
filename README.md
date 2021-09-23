@@ -9,10 +9,10 @@
       <img alt="Rollup Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/rollup.svg" width="16" height="16">&nbsp;Rollup
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://nuxtjs.org/docs/get-started/installation">
       <img alt="Nuxt Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/nuxt.svg" width="16" height="16">&nbsp;Nuxt
-    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://vuejs.org/v2/guide/#What-is-Vue-js">
-      <img alt="Vue Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/vue.svg" width="16" height="16">&nbsp;<strike>Vue</strike>
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://webpack.js.org/concepts/">
       <img alt="Webpack Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/webpack.svg" width="16" height="16">&nbsp;<strike>Webpack 4-5</strike>
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://vuejs.org/v2/guide/#What-is-Vue-js">
+      <img alt="Vue Logo" src="https://raw.githubusercontent.com/tropicalraisel/unplugin-skypin/master/.github/images/vue.svg" width="16" height="16">&nbsp;<strike>Vue</strike>
     </a>
   </p>
   <hr>
