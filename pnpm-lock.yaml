@@ -8,7 +8,7 @@ importers:
       '@nuxt/types': ^2.15.8
       '@nuxt/typescript-build': ^2.1.0
       '@symfony/webpack-encore': ^1.6.1
-      '@tropicalraisel/semver-regexp': ^1.1.5
+      '@tropicalraisel/skylib': ^1.0.0
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^27.0.2
       '@types/node': ^16.10.1
@@ -22,7 +22,6 @@ importers:
       esno: ^0.10.0
       fast-glob: ^3.2.7
       fs-extra: ^10.0.0
-      got: ^11.8.2
       jest: ^27.2.2
       jiti: ^1.12.3
       nodemon: ^2.0.13
@@ -36,14 +35,12 @@ importers:
       ts-jest: ^27.0.5
       tsup: ^5.2.1
       typescript: ^4.4.3
-      typescript-logging: ^1.0.0
       unplugin: ^0.2.16
       vite: ^2.5.10
       vue-template-compiler: ^2.6.14
       webpack: ^4.46.0
     dependencies:
-      '@tropicalraisel/semver-regexp': 1.1.5
-      got: 11.8.2
+      '@tropicalraisel/skylib': 1.0.0
       unplugin: 0.2.16_5cbbc98a2f5268ee9a68f3319f011b79
     devDependencies:
       '@antfu/eslint-config': 0.9.0_eslint@7.32.0+typescript@4.4.3
@@ -76,7 +73,6 @@ importers:
       ts-jest: 27.0.5_1c26bd7af7c289ab64b4c561804bfe7c
       tsup: 5.2.1_typescript@4.4.3
       typescript: 4.4.3
-      typescript-logging: 1.0.0
       vite: 2.5.10
       vue-template-compiler: 2.6.14
       webpack: 4.46.0
@@ -2250,6 +2246,14 @@ packages:
 
   /@tropicalraisel/semver-regexp/1.1.5:
     resolution: {integrity: sha512-ZEj/4v3D55+C7l5+zuTqEhBGvCGDZaijWRmD2YGDu/K2cbYTvz9+12/Eh4yjCaHjcuvBR9KnrIAB/j1Kj4j0Hw==}
+    dev: false
+
+  /@tropicalraisel/skylib/1.0.0:
+    resolution: {integrity: sha512-8fstkPmo5WHVLSrmC2zp+UNRozAhd+5/jZhFqadltXlkLpHvLzFtymvC+FOdYHa9z65hEGNz4XboBAelYxg3kg==}
+    dependencies:
+      '@tropicalraisel/semver-regexp': 1.1.5
+      got: 11.8.2
+      typescript-logging: 1.0.0
     dev: false
 
   /@trysound/sax/0.2.0:
@@ -6165,7 +6169,7 @@ packages:
     resolution: {integrity: sha1-4Oc7k+QXE40c18C3RrGkoUhUwpI=}
     dependencies:
       stackframe: 0.3.1
-    dev: true
+    dev: false
 
   /error-stack-parser/2.0.6:
     resolution: {integrity: sha512-d51brTeqC+BHlwF0BhPtcYgF5nlzf9ZZ0ZIUQNZpc9ZB9qw5IJ2diTrBY9jlCJkTLITYPjmiX6OWCwH+fuyNgQ==}
@@ -13497,7 +13501,6 @@ packages:
   /source-map/0.5.6:
     resolution: {integrity: sha1-dc449SvwczxafwwRjYEzSiu19BI=}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map/0.5.7:
     resolution: {integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=}
@@ -13624,7 +13627,7 @@ packages:
     resolution: {integrity: sha1-NvapIHUabBD0maE8Msu19RoLiyU=}
     dependencies:
       stackframe: 1.2.0
-    dev: true
+    dev: false
 
   /stack-trace/0.0.10:
     resolution: {integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=}
@@ -13639,18 +13642,17 @@ packages:
 
   /stackframe/0.3.1:
     resolution: {integrity: sha1-M6qE8Rd6VUjIk1Uzy/6zQgl19aQ=}
-    dev: true
+    dev: false
 
   /stackframe/1.2.0:
     resolution: {integrity: sha512-GrdeshiRmS1YLMYgzF16olf2jJ/IzxXY9lhKOskuVziubpTYcYqyOwYeJKzQkwy7uN0fYSsbsC4RQaXf9LCrYA==}
-    dev: true
 
   /stacktrace-gps/2.4.4:
     resolution: {integrity: sha1-acgn6dbW9Bz0ONfxleLjy/zyjEQ=}
     dependencies:
       source-map: 0.5.6
       stackframe: 0.3.1
-    dev: true
+    dev: false
 
   /stacktrace-js/1.3.1:
     resolution: {integrity: sha1-Z8qyWJr1xBe5Yvc2mUAne7O2oYs=}
@@ -13658,7 +13660,7 @@ packages:
       error-stack-parser: 1.3.6
       stack-generator: 1.1.0
       stacktrace-gps: 2.4.4
-    dev: true
+    dev: false
 
   /static-extend/0.1.2:
     resolution: {integrity: sha1-YICcOcv/VTNyJv1eC1IPNB8ftcY=}
@@ -14516,7 +14518,7 @@ packages:
     resolution: {integrity: sha512-qeHtadCVKOt6ju4Ts20FgWRdlISditeTuplRlNTA+gFy7ENVK3czZ7YCET7yOZSZVnU00R+hGwls4dZv3+IBSg==}
     dependencies:
       stacktrace-js: 1.3.1
-    dev: true
+    dev: false
 
   /typescript/4.2.4:
     resolution: {integrity: sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==}
